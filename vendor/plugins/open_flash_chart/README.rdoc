@@ -1,0 +1,103 @@
+= OpenFlashChart
+
+Open Flash Chart, is open source. It is free to use and you get the source code to fiddle with!
+
+  http://teethgrinder.co.uk/open-flash-chart/
+  http://pullmonkey.com
+
+== Install (Rails 3)
+
+It's install plugin and copy files "open-flash-chart.swf", "open-flash-chart-bar-clicking.swf" to your project 
+public folder and "swfobject.js" to public/javascripts.
+Your can move *.swf file to public/swf folder and pass option :base_path => '/swf/'.
+
+  rails plugin install git://github.com/galetahub/open_flash_chart.git
+
+== Quick Start
+In your controller:
+
+  class RatingsController < ApplicationController
+    include OpenFlashChart
+    
+    def index
+      @graph = Graph.new(rating_path(1), 800, 300, :base_path => '/swf/')
+    end
+    
+    def show
+      data = [10, 20, 30, 40, 50]
+      
+      line = Line.new
+      line.text = "Ratings"
+      line.width = 1
+      line.colour = '#818D9D'
+      line.dot_size = 2
+      line.values = data
+      
+      x_axis = XAxis.new
+      x_axis.labels = ['1','2','3','4','5']
+      x_axis.colour = '#818D9D'
+            
+      y_axis = YAxis.new
+      y_axis.colour = '#818D9D'
+      y_axis.set_range(0, data.max + 10, 5)
+      
+      chart = OpenFlashChart.new
+      chart.add_element(line)
+      
+      chart.x_axis = x_axis
+      chart.y_axis = y_axis
+      
+      render :text => chart.to_s
+    end
+  end
+
+In your layout don't forget include "swfobject.js":
+  <html>
+  <head>
+    <script type="text/javascript" src="/javascripts/swfobject.js"></script>
+    ...
+  </head>
+  <body>
+    ...
+
+In your index view:
+
+  <%=raw @graph.to_html %>
+
+== Save image locally
+
+Open Flash Chart can save image locally, it's calls JavaScript function "save_image()", when we click's
+"Save image locally" in flash menu. So we need write this function to save image.
+
+This exsample will open new window in browser and load's your flash image:
+
+  <%=raw @graph.to_html %>
+  <%=raw @graph.save_image_popup_script %>
+
+Send image to remote server:
+
+  <%=raw @graph.to_html %>
+  <%=raw @graph.save_image_button('Save image', :url => '/save_image') %>
+
+or:
+  <%=raw @graph.to_html %>
+  <%=raw @graph.save_image_script('/save_image') %>
+  
+  <%= button_to_function "Save Image", "post_image()" %>
+  
+in controller (it's only sample, don't use next code):
+
+  def save_image
+    name = "tmp_image.png" || params[:name]
+    # the save_image method that is provided by the OFC swf file sends raw post data, so get to it like this
+    data = request.raw_post
+    File.open("#{RAILS_ROOT}/tmp/#{name}", "wb") { |f| f.write(data) } if data
+    
+    render :nothing => true
+  end
+  
+== TODO
+  1. More documentation
+  2. Add generators
+  
+Copyright (c) 2010 Brainberry, released under the MIT license

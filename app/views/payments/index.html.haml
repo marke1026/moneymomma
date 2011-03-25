@@ -1,0 +1,48 @@
+%h1 Recurring Payments
+
+%table{:id=> "overview", :width=>"100%"}
+  %tr
+    %th Payee
+    %th Amount
+    %th Delivery Time
+    %th No. of Payments
+  - @payments.each do |p| 
+    %tr{:id => "payment_#{p.id}"}
+      %td= Payee.find(p.payee_id).name
+      %td
+        $
+        = p.amount
+      %td= p.delivery_time
+      %td= p.number_of_payments
+      %td= link_to "Edit", edit_payment_path(p)
+      %td= link_to_remote "Destroy", :url=>payment_path(p), :method=>"delete", :confirm=>"Are you sure ?"
+      
+%h1 Financial Info
+
+%table{:id=> "overview", :width=>"100%"}
+  %tr
+    %th Paycheck Amount
+    %th Paycheck Frequency
+  - @deposits.each do |d| 
+    %tr{:id => "deposit_#{d.id}"}
+      %td
+        $
+        = d.paycheck_amount
+      %td= d.paycheck_frequency
+      %td= link_to "Edit", edit_deposit_path(d)
+      %td= link_to_remote "Destroy", :url=>deposit_path(d), :method=>"delete", :confirm=>"Are you sure ?"
+      
+%h1 Payees
+
+%table{:id=> "overview", :width=>"100%"}
+  %tr
+    %th Payee Name
+    %th City
+  - @payees.each do |p| 
+    %tr{:id => "payee_#{p.id}"}
+      %td= p.name
+      %td= p.city
+      %td= link_to "Edit", edit_payee_path(p)
+      %td= link_to_remote "Destroy", :url=>payee_path(p), :method=>"delete", :confirm=>"Are you sure ?"
+%br
+=raw @graph.to_html

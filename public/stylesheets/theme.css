@@ -1,0 +1,153 @@
+body {
+  background-color: #c8e2d1;
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 14px;
+}
+
+a img {
+  border: none;
+}
+
+a {
+  color: #1f9455;
+}
+
+h1 {
+	color:#158147;
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+#logo{
+	background:url(/images/money_momma1.jpg) no-repeat;
+	width:596px;
+	height:165px;
+  margin-left:80px;
+	float:left;
+}
+
+#container {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #e5f5ea;
+  padding: 20px 40px;
+  border: solid 1px #1f9455;
+  margin-top: 180px;
+}
+
+#flash_notice, #flash_error, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error, #flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+.fieldWithErrors {
+  display: inline;
+}
+
+.errorExplanation {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  font-size: 12px;
+}
+
+.errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 12px;
+  margin: 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+.errorExplanation p {
+  margin: 8px 10px;
+}
+
+.errorExplanationul {
+  margin: 0;
+}
+
+#menu{
+	float:right;
+	font-size:16px;;
+}
+
+#menu a{
+	color:#525252;
+}
+
+#login{
+	float:right;
+	margin:20px 90px 0px 0px;
+}
+
+/*Credits: Dynamic Drive CSS Library */
+/*URL: http://www.dynamicdrive.com/style/ */
+
+.basictab{
+margin-top:-43px;
+padding: 3px 0;
+font: bold 12px Verdana;
+border-bottom: 1px solid #1f9455;
+list-style-type: none;
+text-align: right; /*set to left, center, or right to align the menu as desired*/
+}
+
+.basictab li{
+display: inline;
+margin: 0;
+}
+
+.basictab li a{
+text-decoration: none;
+padding: 3px 7px;
+margin-right: 3px;
+border: 1px solid #1f9455;
+border-bottom: none;
+background-color: #f6ffd5;
+color: #2d2b2b;
+}
+
+.basictab li a:visited{
+color: #2d2b2b;
+}
+
+.basictab li a:hover{
+background-color: #DBFF6C;
+color: black;
+}
+
+.basictab li a:active{
+color: black;
+}
+
+.basictab li.selected a{ /*selected tab effect*/
+position: relative;
+top: 1px;
+padding-top: 4px;
+background-color: #E5F5EA;
+color: black;
+}
+
+table th{
+	text-align:left;
+}

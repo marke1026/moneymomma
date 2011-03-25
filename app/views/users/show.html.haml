@@ -1,0 +1,20 @@
+%p
+  %b First Name:
+  = h @user.first_name
+%p
+  %b Last Name:
+  = h @user.last_name
+%p
+  %b Email:
+  = h @user.email
+%p
+  %b Gender:
+  = h @user.sex
+%p
+  %b Country:
+  = h @user.country
+%P
+  %b State:
+  =h @user.state
+  
+= link_to 'Edit', edit_user_path(@user)

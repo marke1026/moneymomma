@@ -1,0 +1,16 @@
+%h1 Edit Financial Info
+= form_for @deposit do |d|
+  = d.error_messages
+  %table{:border => "0", :cellpadding => "0", :cellspacing => "10", :width => "60%"}
+    %tr
+      %td= d.label :paycheck_amount
+      %td
+        $
+        = d.text_field :paycheck_amount, :size=>"17"
+    %tr
+      %td= d.label :paycheck_frequency
+      %td= d.select :paycheck_frequency, ["15th day of the month", "last day of the month", "both"], {:include_blank => true}
+    %tr
+      %td
+        = d.submit "Update Deposit"
+        = button_to_function "Cancel", "history.back()"
