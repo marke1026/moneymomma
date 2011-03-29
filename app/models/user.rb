@@ -34,8 +34,8 @@ class User < ActiveRecord::Base
     payment_collection = []
     payments = Payment.find_all_by_payee_id(payees.map{|p| p.id})
     dates_for_next_six_months.each do |date|
-      selected_payments = payments.select{|p| p.transaction_dates.include?(date) }
-      payment_collection << selected_payments.sum{ |p| p.amount.to_i} unless selected_payments.blank?
+      selected_payments = payments.select{ |p| p.transaction_dates.include?(date) }
+      payment_collection << selected_payments.sum{ |p| p.amount.to_i}
     end
     return payment_collection
   end
@@ -44,8 +44,8 @@ class User < ActiveRecord::Base
     deposit_collection = []
     deposits = self.deposits.all
     dates_for_next_six_months.each do |date|
-      selected_deposits = deposits.select{|p| p.deposit_dates.include?(date) }
-      deposit_collection << selected_deposits.sum{ |p| p.paycheck_amount.to_i} unless selected_deposits.blank?
+      selected_deposits = deposits.select{ |p| p.deposit_dates.include?(date) }
+      deposit_collection << selected_deposits.sum{ |p| p.paycheck_amount.to_i}
     end
     return deposit_collection
   end
@@ -53,8 +53,8 @@ class User < ActiveRecord::Base
   def dates_for_next_six_months
     middle_of_month = Date.parse("15.#{Date.today.month}.#{Date.today.year}")
     dates = []
-    6.times do
-      dates << middle_of_month
+    (1..10).each do |x|
+      dates << middle_of_month unless Date.today.day > 15 and x == 1
       end_of_month = middle_of_month.end_of_month
       dates << end_of_month
       # move date to next month
