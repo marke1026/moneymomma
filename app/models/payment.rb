@@ -1,7 +1,8 @@
 class Payment < ActiveRecord::Base
   belongs_to :payee
+  has_many :transactions, :as => :payable
   
-  validates_presence_of :payee, :delivery_time, :amount
+  validates_presence_of :payee, :delivery_time, :amount, :number_of_payments
   
   DELIVERY_TIME = ["15th day of the month", "last day of the month", "both"]
   
@@ -22,6 +23,20 @@ class Payment < ActiveRecord::Base
       middle_of_month = middle_of_month.next_month
     end
     return dates
+  end
+  
+  def process_payment
+    t = self.transactions.new
+    t.amount = self.amount
+    t.reference_number = Transaction.generate_reference_number
+    t.status = true
+    t.save
+  end
+  
+  def self.generate_transactions_for_today
+    self.all.select{|p| p.transaction_dates.include?(Date.today)}.each do |trans|
+      trans.process_payment
+    end
   end
   
 end

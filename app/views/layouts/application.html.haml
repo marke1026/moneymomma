@@ -29,11 +29,13 @@
           %li{:class => controller.controller_name == 'payments' && controller.action_name == 'index' ? 'selected' : 'not_selected'}
             = link_to "Overview", payments_path
           %li{:class => controller.controller_name == 'payees' ? 'selected' : 'not_selected'}
-            = link_to "Payees", new_payee_path
-          %li{:class => controller.controller_name == 'payments' && controller.action_name != 'index' ? 'selected' : 'not_selected'}
+            = link_to "Payees", payees_path
+          %li{:class => controller.controller_name == 'payments' && controller.action_name == 'new' ? 'selected' : 'not_selected'}
             = link_to "Recuring Payments", new_payment_path
           %li{:class => controller.controller_name == 'deposits' ? 'selected' : 'not_selected'}
             = link_to "My Financial Info", new_deposit_path
+          %li{:class => controller.controller_name == 'transactions' ? 'selected' : 'not_selected'}
+            = link_to "Payment Activity", transactions_path
     - flash.each do |name, msg|
       = content_tag :div, msg, :id => "flash_#{name}"
     = content_tag :h1, yield(:title) if show_title?

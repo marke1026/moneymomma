@@ -31,18 +31,6 @@
       %td= d.paycheck_frequency
       %td= link_to "Edit", edit_deposit_path(d)
       %td= link_to_remote "Destroy", :url=>deposit_path(d), :method=>"delete", :confirm=>"Are you sure ?"
-      
-%h1 Payees
 
-%table{:id=> "overview", :width=>"100%"}
-  %tr
-    %th Payee Name
-    %th City
-  - @payees.each do |p| 
-    %tr{:id => "payee_#{p.id}"}
-      %td= p.name
-      %td= p.city
-      %td= link_to "Edit", edit_payee_path(p)
-      %td= link_to_remote "Destroy", :url=>payee_path(p), :method=>"delete", :confirm=>"Are you sure ?"
 %br
-=raw @graph.to_html
+%div{:id=>"graph"}=raw @graph.to_html

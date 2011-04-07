@@ -2,6 +2,7 @@ class PayeesController < ApplicationController
   before_filter :require_user
   
   def index
+    @payees = current_user.payees.find(:all)
   end
   
   def new
@@ -12,7 +13,7 @@ class PayeesController < ApplicationController
     @payee = current_user.payees.new(params[:payee])
     if @payee.save
       flash[:notice] = "Payee has been added successfully!"
-      redirect_to payments_path
+      redirect_to payees_path
     else
       render :action => :new
     end
@@ -26,7 +27,7 @@ class PayeesController < ApplicationController
     @payee = current_user.payees.find_by_id(params[:id])
     if @payee.update_attributes(params[:payee])
       flash[:notice] = "Payee has been updated!"
-      redirect_to payments_path
+      redirect_to payees_path
     else
       render :action => :edit
     end

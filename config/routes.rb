@@ -1,4 +1,6 @@
 Money::Application.routes.draw do
+  resources :transactions
+
   resources :deposits
 
   resources :payments do

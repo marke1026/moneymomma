@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name
   
   has_many :payees
+  has_many :payments, :through => :payees
   has_many :deposits
   
   def activate!
@@ -62,5 +63,11 @@ class User < ActiveRecord::Base
     end
     return dates
   end
+  
+  def transactions
+    p = self.payments.all(:include => "transactions")
+    p.map{|a| a.transactions}.flatten
+  end
+    
   
 end

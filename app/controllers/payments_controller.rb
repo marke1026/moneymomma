@@ -4,7 +4,6 @@ class PaymentsController < ApplicationController
   
   def index
     @payments = Payment.find(:all, :conditions => {:payee_id => current_user.payees})
-    @payees = current_user.payees.find(:all)
     @deposits = current_user.deposits.find(:all)
     @graph = Graph.new(bar_graph_payments_path, 1000, 500, :base_path => '/')
   end
@@ -40,9 +39,11 @@ class PaymentsController < ApplicationController
   def destroy
     @payment = Payment.find_by_id(params[:id])
     @payment.destroy
+    @graph = Graph.new(bar_graph_payments_path, 1000, 500, :base_path => '/')
     if request.xhr?
       render :update do |page|
         page.remove "payment_#{params[:id]}"
+        page.replace_html "graph", "#{raw @graph.to_html}"
       end
     end
   end
