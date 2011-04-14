@@ -2,7 +2,7 @@
   %head
     %title
       = content_for?(:title) ? yield(:title) : "Money"
-    = stylesheet_link_tag "theme"
+    = stylesheet_link_tag "theme", "notice"
     = javascript_include_tag :defaults
     = javascript_include_tag "swfobject"
     = csrf_meta_tag

@@ -1,15 +1,16 @@
-%h1
-  Forgot Password
+#forgot_password_content
+  - flash.each do |name, msg|
+    = content_tag :div, msg, :id => "flash_#{name}"
+  %p{:style=>"font-size:18px;"} Forgot Password
+  Fill out the form below and instructions to reset your password will be emailed to you:
+  %br
+  %br
 
-Fill out the form below and instructions to reset your password will be emailed to you:
-%br
-%br
-
-= form_tag password_resets_path do
-  %label
-    Email:
-  %br
-  = text_field_tag "email"
-  %br
-  %br
-  = submit_tag "Reset my password"
+  = form_tag password_resets_path do
+    %label
+      Email:
+    %br
+    = text_field_tag "email"
+    %br
+    %br
+    = submit_tag "Reset my password"

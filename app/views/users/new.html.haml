@@ -1,2 +1,61 @@
-%h1 Create New Account
-= render :partial => "form"
+#art_content_sign
+  .form
+    = form_for @user do |f|
+      = f.error_messages
+      %table{:align => "right", :border => "0", :width => "100%"}
+        %tr
+          %td{:align => "right", :width => "73%"}
+            %span.create create a new account
+          %td{:width => "27%"}
+            %img{:alt => "lock", :height => "27", :src => "/images/lock.png", :width => "28"}
+        %tr
+          %td{:align => "right", :height => "40"} First Name
+          %td= f.text_field :first_name
+        %tr
+          %td{:align => "right", :height => "40"} Last Name
+          %td= f.text_field :last_name
+        %tr
+          %td{:align => "right", :height => "40"} Your Email
+          %td= f.text_field :email
+        %tr
+          %td{:align => "right", :height => "40"} Password
+          %td= f.password_field :password
+        %tr
+          %td{:align => "right", :height => "40"} Confirm Password
+          %td= f.password_field :password_confirmation
+        %tr
+          %td{:align => "right", :height => "40"} Country
+          %td{:id=>"country"}= localized_country_select(:user, :country, [], :include_blank => 'Please choose...')
+        %tr
+          %td{:align => "right", :height => "40"} State
+          %td= f.text_field :state
+        %tr
+          %td{:align => "right", :height => "40"} Zipcode
+          %td= f.text_field :zipcode
+        %tr
+          %td{:align => "right", :height => "40"} Gender
+          %td= select :user, :gender, {:female=>false, :male=>true}
+        %tr
+          %td{:align => "right", :height => "40"} BirthDay
+          %td= f.date_select :birth_date, :start_year => 1950
+        %tr
+          %td{:height => "30"}  
+          %td
+            %label
+              Yes, I agree to the Moneymomma
+              %br
+              %a{:href => "#"} Terms of Use
+        %tr
+          %td
+          %td{:height => "30"}= f.submit "Create User"
+  #why
+    .why_text
+      .why_love Why you will love moneymomma
+      .why_love_ul
+        %ul
+          %li See all your accounts in one place
+          %li Set a budget pay down your debt
+          %li Find the best way to grow your money
+          %li
+            Stay
+            %u safe and secure
