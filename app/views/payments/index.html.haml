@@ -1,3 +1,6 @@
+
+%div{:id=>"graph"}=raw @graph.to_html
+
 %h1 Recurring Payments
 
 %table{:id=> "overview", :width=>"100%"}
@@ -33,4 +36,5 @@
       %td= link_to_remote "Destroy", :url=>deposit_path(d), :method=>"delete", :confirm=>"Are you sure ?"
 
 %br
-%div{:id=>"graph"}=raw @graph.to_html
+
+
