@@ -1,0 +1,242 @@
+!!!
+%html{:lang => "en", "xmlns:fb" => "http://www.facebook.com/2008/fbml"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}
+    %meta{:charset => "utf-8"}
+    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
+    %meta{:content => "Free personal finance software to assist you to manage your money, financial planning, and budget planning tools. Achieve your financial goals with Money momma.", :name => "description"}/
+    %meta{:content => "Moneymomma.com", :name => "author"}
+    %meta{:content => "width=1024", :name => "viewport"}
+    %title Free Personal Finance Software, Budget Software, Online Money Management and Budget Planner | moneymomma.com
+    = stylesheet_link_tag "base", "mint"
+    = javascript_include_tag :defaults, :all
+  %body#home.home
+    / Create Mbox Function
+    .mboxDefault{:style => "visibility: visible; display: block;"}
+    / Start Header
+    #header
+      / Logo
+      %a#logo.ir{:href => "#"} Moneymomma.com
+      / Login/Sign up
+      #user_auth
+        %a.small.black.login.button{:href => "#{new_user_session_path}", :tabindex => "5"}
+          %span.login Log in
+        .divider
+        %a.small.orange.signup.button{:href => "#{new_user_path}", :tabindex => "6"}
+          %span.sign_up Sign up
+      #nav
+        %a.nav_what_is_mint.item{:href => "#"} WHAT IS MONEY MOMMA?
+        %a.nav_how-it-works.item{:href => "#"} HOW IT WORKS
+        %a.nav_savings.item{:href => "#"} FIND SAVINGS
+        %a.nav_community.item{:href => "#"} COMMUNITY
+        %a.nav_company.last.item{:href => "#"} COMPANY
+    / End Header
+    / Start main section
+    #main
+      / Start Hero
+      .mboxDefault{:style => "visibility: visible; display: block;"}
+        #hero.video_hero
+          .content
+            %h1
+              The best
+              %span.green free
+              = succeed "way" do
+                %br/
+              to manage
+              = succeed "your" do
+                %br/
+              money
+            %p
+              Money momma brings all your financial
+              %br>/
+              accounts together online, automatically
+              %br/
+              categorizes your transactions,  lets you set
+              %br/
+              budgets &amp; helps you achieve your savings
+              %br/
+              goals.
+            .links
+              %a.launch_video{:href => "#"} Watch the video
+              \&nbsp;|&nbsp;
+              %a.more{:href => "#"} Learn more
+            %a.medium.orange.button{:href => "#"}
+              %span.get_started Free! Get started here
+          %a.launch_video{:href => "#"}
+            %img.thumb{:alt => "Your finances online", :src => "/images/video_laptop_one.png"}
+      / End Hero
+      / Start Highlights
+      #highlights.clearfix
+        / Start Safe &amp; Secure
+        .safe_secure.left
+          .header
+            Stay
+            %span.caps SAFE
+            and
+            %span.caps SECURE
+          %a{:href => "#"}
+            %span.thumb
+          %ul.blurb
+            %li Bank-level data security
+            %li You can't move any money
+            %li Alerts to keep you safe
+          %a.more.small{:href => "#"} Learn more
+        / End Safe &amp; Secure
+        .feel_love.left
+          .header
+            %span.caps FEELIN
+            the
+            %span.caps LOVE
+          #accolades
+            .testimonial_2.clearfix
+              .quotes.left
+                .quote
+                  “Simply amazing. This is exactly
+                  = succeed "what" do
+                    %br/
+                  each bank should actually
+                  = succeed "be" do
+                    %br/
+                  offering these days.”
+                .author – Jay R., Minneapolis, MN
+              .quotes.right
+                .quote
+                  “...You have already helped me
+                  %br>/
+                  save money.  I'm saving hundreds
+                  %br>/
+                  of dollars in ATM fees.”
+                .author – Steve D., Missoula, MT
+              %a.more.small{:href => "#"} More
+          / End Accolades
+        / End Feeling the Love
+      / End Highlights
+      #millions
+        %strong Be one of the first to use Money momma.
+        Get in front of your bills and stay there forever!.
+        %a.more.small{:href => "#"} It's Free! Get started
+    / End main
+    / Start footer
+    #footer
+      / Start utilities
+      #utilities.clearfix
+        #security_logos.left
+          %a{:href => "#"}
+          %a{:href => "#"}
+          %a{:href => "#"}
+            %span#mcafee
+        #social.left
+          %a{:href => "#"}
+            %span#facebook
+          %a{:href => "#"}
+            %span#twitter
+          %a{:href => "#"}
+            %span#rss
+        #mobile.left
+          #iphone
+          #get_mint
+            Get Money momma for:
+            %a{:href => "#"} iPhone
+            |
+            %a{:href => "#"} Android
+      / End utilities
+      / Start shadow
+      #shadow.clearfix
+        #shadow_left.left
+        #shadow_middle.left
+        #shadow_right.left
+      / End shadow
+      / Start footer links
+      #links.clearfix
+        %ul.first.left.list
+          %li.header Site Links
+          %li
+            %a{:href => "#"} Home
+          %li
+            %a{:href => "#"} Privacy &amp; Security
+          %li
+            %a{:href => "#"} Help
+          %li
+            %a{:href => "#"} Personal Finance Blog
+          %li
+            %a{:href => "#"} Site Map
+          %li
+            %a{:href => "#"} Money momma Answers
+        %ul.left.list
+          %li.header Your Money
+          %li
+            %a{:href => "#"} Manage your budget
+          %li
+            %a{:href => "#"} Understand investing
+          %li
+            %a{:href => "#"} Credit card advice
+          %li
+            %a{:href => "#"} Save money
+          %li
+            %a{:href => "#"} Pay off debt
+          %li
+            %a{:href => "#"} Pay off student loans
+          %li
+            %a{:href => "#"} Save for retirement
+          %li
+            %a{:href => "#"} Get ready for taxes
+        %ul.left.list
+          %li.header Automatic Money Management
+          %li
+            %a{:href => "#"} Investment Management Software
+          %li
+            %a{:href => "#/"} Online Money Management
+          %li
+            %a{:href => "#"} Investing in Stocks
+          %li
+            %a{:href => "#"} Savings Account
+          %li
+            %a{:href => "#"} Commodities Investing
+          %li
+            %a{:href => "#"} Investment Management
+        %ul.left.list
+          %li.header Better Budgeting
+          %li
+            %a{:href => "#"} Quicken Mac Financial Software
+          %li
+            %a{:href => "#"} Personal Budget Planner
+          %li
+            %a{:href => "#"} Real Estate Investing
+          %li
+            %a{:href => "#"} Household Budget Tracking
+          %li
+            %a{:href => "#"} Personal Budgeting
+          %li
+            %a{:href => "#"} Creating a Budget
+        %ul.left.list
+          %li.header Personal Finance Made Easy
+          %li
+            %a{:href => "#"} Quicken Personal Finance Software
+          %li
+            %a{:href => "#"} Online Financial Management
+          %li
+            %a{:href => "#"} Credit Card Offers
+          %li
+            %a{:href => "#"} Personal Finance Software
+          %li
+            %a{:href => "#"} Online Budgeting Tools
+          %li
+            %a{:href => "#"} Financial Planning
+          %li
+            %a{:href => "#"} Online Bill Pay
+      / End footer links
+      #intuit
+        #intuit_links
+          %a{:href => "#"} Legal Notice
+          |
+          %a{:href => "#"} Terms of Service
+          |
+          %a{:href => "#"} Privacy
+          |
+          %a{:href => "#"} About Intuit
+        #intuit_copyright
+          %p
+            ©2010 Money Momma, Inc. All rights reserved.
+            %br/
+            Terms, conditions, features, availability, pricing, fees, service and support options subject to change without notice.
+    / End footer

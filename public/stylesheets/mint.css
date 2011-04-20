@@ -168,11 +168,6 @@ a.button	{
 	
 }
 
-.button .sign_up, .button .login	{
-	background: url(../images/lock.png) no-repeat 0% 49%;
-	padding-left: 12px;	
-}
-
 .button .get_started	{
 	background: url(../images/white_arrow.png) no-repeat 100% 65%;
 	padding-right: 18px;

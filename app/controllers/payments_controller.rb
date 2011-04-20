@@ -1,6 +1,10 @@
 class PaymentsController < ApplicationController
   include OpenFlashChart
-  before_filter :require_user
+  before_filter :require_user, :except => [:home]
+  
+  def home
+    render :nothing => true, :layout => "home"
+  end
   
   def index
     @payments = Payment.find(:all, :conditions => {:payee_id => current_user.payees})
