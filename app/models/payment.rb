@@ -34,7 +34,7 @@ class Payment < ActiveRecord::Base
   end
   
   def self.generate_transactions_for_today
-    self.all.select{|p| p.transaction_dates.include?(Date.today)}.each do |trans|
+    self.all.select{|p| p.transaction_dates.include?(Date.today + 9)}.each do |trans|
       trans.process_payment
     end
   end
