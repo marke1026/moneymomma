@@ -31,6 +31,9 @@ class Payment < ActiveRecord::Base
     t.reference_number = Transaction.generate_reference_number
     t.status = true
     t.save
+     n = Integer(self.number_of_payments) - 1
+   self.number_of_payments = n
+   self.save
   end
   
   def self.generate_transactions_for_today
