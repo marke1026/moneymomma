@@ -33,7 +33,7 @@ class Deposit < ActiveRecord::Base
   end
   
   def self.generate_transactions_for_today
-    self.all.select{|p| p.deposit_dates.include?(Date.today)}.each do |trans|
+    self.all.select{|p| p.deposit_dates.include?(Date.today + 5)}.each do |trans|
       trans.process_deposit
     end
   end
