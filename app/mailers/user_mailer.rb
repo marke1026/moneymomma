@@ -5,7 +5,7 @@ class UserMailer < ActionMailer::Base
   end
   
   if Rails.env == 'production'
-    default :from => "mymoneymomma.heroku.com"
+    default :from => "mymoneymomma.com"
     default_url_options[:host] = "mymoneymomma.com"
   end
   
