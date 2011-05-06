@@ -83,7 +83,7 @@ class User < ActiveRecord::Base
   def send_email_alerts_before_paycheck
     dates_before_payments = self.payments.all.map{|p| p.transaction_dates}.flatten.map{|b| b-5}
     dates_before_deposits = self.deposits.all.map{|d| d.deposit_dates}.flatten.map{|c| c-5}
-    if dates_before_payments.include?(Date.today+4) || dates_before_deposits.include?(Date.today+4)
+    if dates_before_payments.include?(Date.today) || dates_before_deposits.include?(Date.today)
       UserMailer.alert_before_paycheck(self).deliver
     else
       return false
@@ -93,7 +93,7 @@ class User < ActiveRecord::Base
   def send_email_alerts_on_paycheck
     dates_of_payments = self.payments.all.map{|p| p.transaction_dates}.flatten
     dates_of_deposits = self.deposits.all.map{|d| d.deposit_dates}.flatten
-    if dates_of_payments.include?(Date.today+9) || dates_of_deposits.include?(Date.today+9)
+    if dates_of_payments.include?(Date.today) || dates_of_deposits.include?(Date.today)
       UserMailer.alert_on_paycheck(self).deliver
     else
       return false
