@@ -26,4 +26,15 @@ class UserMailer < ActionMailer::Base
     content_type "text/html"
     mail(:to => user.email, :subject => "Money Momma Password Reset Instructions")
   end
+  
+  def alert_before_paycheck(user)
+    mail(:to => user.email, :subject => "paycheck alert before 5 days")
+    content_type "text/html"
+  end
+  
+  def alert_on_paycheck(user)
+    @user = user
+    mail(:to => user.email, :subject => "paycheck alert")
+    content_type "text/html"
+  end
 end

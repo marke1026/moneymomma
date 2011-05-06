@@ -24,5 +24,12 @@ Money::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+  
+  config.after_initialize do
+    Moonshado::Sms.configure do |config|
+      config.production_environment = false
+    end
+  end
+  
 end
 

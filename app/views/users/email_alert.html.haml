@@ -1,0 +1,27 @@
+= form_for @user do |f|
+  = f.error_messages
+  %table{:border => "0", :cellpadding => "0", :cellspacing => "10", :width => "80%"}
+    %tr
+      %td= f.label :email_alert
+      %td= f.check_box :email_alert
+    %tr
+      %td= f.label :email
+      %td= f.text_field :email
+    %tr
+      %td= f.label :secondry_email
+      %td= f.text_field :secondry_email
+    %tr
+      %td= f.label :email_delivery_time
+      %td= f.select :email_delivery_time, ["5 days before Paycheck", "5 days before and on Paycheck day"]
+    %tr
+      %td= f.label :mobile_alert
+      %td= f.check_box :mobile_alert
+    %tr
+      %td= f.label :mobile
+      %td= f.text_field :mobile
+    %tr
+      %td= f.label :sms_delivery_time
+      %td= f.select :sms_delivery_time, ["5 days before Paycheck", "5 days before and on Paycheck day"]
+    %tr
+      %td
+        = f.submit "Set Alerts"

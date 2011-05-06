@@ -14,7 +14,11 @@ Money::Application.routes.draw do
 
   get "activations/create"
 
-  resources :users
+  resources :users do
+    collection do
+      get 'email_alert'
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

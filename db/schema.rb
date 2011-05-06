@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110407011436) do
+ActiveRecord::Schema.define(:version => 20110429103025) do
 
   create_table "deposits", :force => true do |t|
     t.integer  "user_id"
@@ -80,6 +80,12 @@ ActiveRecord::Schema.define(:version => 20110407011436) do
     t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "secondry_email"
+    t.string   "mobile"
+    t.string   "email_delivery_time"
+    t.string   "sms_delivery_time"
+    t.boolean  "email_alert"
+    t.boolean  "mobile_alert"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

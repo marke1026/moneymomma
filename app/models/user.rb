@@ -68,6 +68,36 @@ class User < ActiveRecord::Base
     p = self.payments.all(:include => "transactions")
     p.map{|a| a.transactions}.flatten
   end
-    
   
+  def send_email_alerts
+    if self.email_alert?
+      if self.email_delivery_time == "5 days before Paycheck"
+        send_email_alerts_before_paycheck
+      elsif self.email_delivery_time == "5 days before and on Paycheck day"
+        send_email_alerts_before_paycheck
+        send_email_alerts_on_paycheck
+      end
+    end
+  end
+  
+  def send_email_alerts_before_paycheck
+    dates_before_payments = self.payments.all.map{|p| p.transaction_dates}.flatten.map{|b| b-5}
+    dates_before_deposits = self.deposits.all.map{|d| d.deposit_dates}.flatten.map{|c| c-5}
+    if dates_before_payments.include?(Date.today+4) || dates_before_deposits.include?(Date.today+4)
+      UserMailer.alert_before_paycheck(self).deliver
+    else
+      return false
+    end
+  end
+  
+  def send_email_alerts_on_paycheck
+    dates_of_payments = self.payments.all.map{|p| p.transaction_dates}.flatten
+    dates_of_deposits = self.deposits.all.map{|d| d.deposit_dates}.flatten
+    if dates_of_payments.include?(Date.today+9) || dates_of_deposits.include?(Date.today+9)
+      UserMailer.alert_on_paycheck(self).deliver
+    else
+      return false
+    end
+  end
+
 end

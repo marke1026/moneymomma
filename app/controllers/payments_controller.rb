@@ -61,12 +61,12 @@ class PaymentsController < ApplicationController
     
     bar1 = Bar.new
     bar1.text = "Deposits"
-    bar1.colour = '#818D9D'
+    bar1.colour = '#076f44'
     bar1.values = deposits
     
     bar2 = Bar.new
     bar2.text = "Payments"
-    bar2.color = '#424581'
+    bar2.color = '#cd162b'
     bar2.values = payments
     
     x_axis = XAxis.new

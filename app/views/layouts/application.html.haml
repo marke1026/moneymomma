@@ -36,6 +36,8 @@
             = link_to "My Financial Info", new_deposit_path
           %li{:class => controller.controller_name == 'transactions' ? 'selected' : 'not_selected'}
             = link_to "Payment Activity", transactions_path
+          %li{:class => controller.controller_name == 'users' && controller.action_name == 'email_alert' ? 'selected' : 'not_selected'}
+            = link_to "Email & Alerts", email_alert_users_path
     - flash.each do |name, msg|
       = content_tag :div, msg, :id => "flash_#{name}"
     = content_tag :h1, yield(:title) if show_title?
