@@ -5,6 +5,7 @@ task :cron => :environment do
     
     User.find(:all).each do |user|
       user.send_email_alerts
+      user.send_mobile_alerts
     end
 
 end

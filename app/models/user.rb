@@ -99,5 +99,38 @@ class User < ActiveRecord::Base
       return false
     end
   end
+  
+  def send_mobile_alerts
+    if self.mobile_alert? && self.mobile?
+      if self.sms_delivery_time == "5 days before Paycheck"
+        send_mobile_alerts_before_paycheck
+      elsif self.sms_delivery_time == "5 days before and on Paycheck day"
+        send_mobile_alerts_before_paycheck
+        send_mobile_alerts_on_paycheck
+      end
+    end
+  end
+  
+  def send_mobile_alerts_before_paycheck
+    dates_before_payments = self.payments.all.map{|p| p.transaction_dates}.flatten.map{|b| b-5}
+    dates_before_deposits = self.deposits.all.map{|d| d.deposit_dates}.flatten.map{|c| c-5}
+    if dates_before_payments.include?(Date.today) || dates_before_deposits.include?(Date.today)
+      sms = Moonshado::Sms.new(self.mobile, "You have 5 days left for payments, Please login to mymoneymomma to manage things.")
+      sms.deliver_sms
+    else
+      return false
+    end
+  end
+  
+  def send_mobile_alerts_on_paycheck
+    dates_of_payments = self.payments.all.map{|p| p.transaction_dates}.flatten
+    dates_of_deposits = self.deposits.all.map{|d| d.deposit_dates}.flatten
+    if dates_of_payments.include?(Date.today) || dates_of_deposits.include?(Date.today)
+      sms = Moonshado::Sms.new(self.mobile, "Today is your Payment day, Please login to mymoneymomma to manage things.")
+      sms.deliver_sms
+    else
+      return false
+    end
+  end
 
 end
