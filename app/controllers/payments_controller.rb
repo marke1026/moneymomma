@@ -57,7 +57,7 @@ class PaymentsController < ApplicationController
     
     payments = current_user.payments_for_next_six_months
     
-    max_range = deposits.max + payments.max
+    max_range = deposits.max
     
     bar1 = Bar.new
     bar1.text = "Deposits"
