@@ -43,7 +43,7 @@ class PaymentsController < ApplicationController
   def destroy
     @payment = Payment.find_by_id(params[:id])
     @payment.destroy
-    @graph = Graph.new(bar_graph_payments_path, 1000, 500, :base_path => '/')
+    @graph = Graph.new(bar_graph_payments_path, 500, 500, :base_path => '/')
     if request.xhr?
       render :update do |page|
         page.remove "payment_#{params[:id]}"
@@ -75,7 +75,7 @@ class PaymentsController < ApplicationController
           
     y_axis = YAxis.new
     y_axis.colour = '#818D9D'
-    y_axis.set_range(0, max_range, 500)
+    y_axis.set_range(0, max_range, 1000)
     
     chart = OpenFlashChart.new
     chart.add_element(bar1)
