@@ -57,7 +57,7 @@ class PaymentsController < ApplicationController
     
     payments = current_user.payments_for_next_six_months
     
-    max_range = deposits.max
+    max_range = deposits.max + payments.max
     
     bar1 = Bar.new
     bar1.text = "Deposits"
@@ -75,7 +75,7 @@ class PaymentsController < ApplicationController
           
     y_axis = YAxis.new
     y_axis.colour = '#818D9D'
-    y_axis.set_range(0, max_range, 1000)
+    y_axis.set_range(0, max_range, 500)
     
     chart = OpenFlashChart.new
     chart.add_element(bar1)
