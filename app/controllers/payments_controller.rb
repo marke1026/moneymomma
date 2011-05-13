@@ -43,7 +43,7 @@ class PaymentsController < ApplicationController
   def destroy
     @payment = Payment.find_by_id(params[:id])
     @payment.destroy
-    @graph = Graph.new(bar_graph_payments_path, 500, 500, :base_path => '/')
+    @graph = Graph.new(bar_graph_payments_path, 500, 1000, :base_path => '/')
     if request.xhr?
       render :update do |page|
         page.remove "payment_#{params[:id]}"
