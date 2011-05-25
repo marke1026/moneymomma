@@ -39,7 +39,7 @@ class PaymentsController < ApplicationController
       render :action => :edit
     end
   end
-  
+      
   def destroy
     @payment = Payment.find_by_id(params[:id])
     @payment.destroy
