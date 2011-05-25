@@ -82,23 +82,23 @@ class User < ActiveRecord::Base
   end
   
   def send_email_alerts
-#    if self.email_alert?
-#
-#     if self.email_delivery_time == "5 days before Paycheck"
+    if self.email_alert?
+
+    if self.email_delivery_time == "5 days before Paycheck"
         send_email_alerts_before_paycheck
-#      elsif self.email_delivery_time == "5 days before and on Paycheck day"
-#       send_email_alerts_before_paycheck
-#        send_email_alerts_on_paycheck
-#      end
-#   end
+      elsif self.email_delivery_time == "5 days before and on Paycheck day"
+        send_email_alerts_before_paycheck
+        send_email_alerts_on_paycheck
+      end
+   end
   end
   
   def send_email_alerts_before_paycheck
-    puts "3333333---------- "
+
     dates_before_payments = self.payments.all.map{|p| p.transaction_dates}.flatten.map{|b| b-5}
     dates_before_deposits = self.deposits.all.map{|d| d.deposit_dates}.flatten.map{|c| c-5}
     if dates_before_payments.include?(Date.today) || dates_before_deposits.include?(Date.today)
-     puts "44---------- "
+    
       UserMailer.alert_before_paycheck(self).deliver
     else
       return false
