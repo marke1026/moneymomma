@@ -51,7 +51,7 @@ class PaymentsController < ApplicationController
       end
     end
   end
-  
+         
   def bar_graph
     deposits = current_user.deposits_for_next_six_months
     
