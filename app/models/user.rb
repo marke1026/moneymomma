@@ -34,10 +34,8 @@ class User < ActiveRecord::Base
   def payments_for_next_six_months
     payment_collection = []
     payments = Payment.find_all_by_payee_id(payees.map{|p| p.id})
-    puts "11-------------#{payments.count}----#{dates_for_next_six_months}"
-    dates_for_next_six_months.each do |date|
+   dates_for_next_six_months.each do |date|
       selected_payments = payments.select{ |p| p.transaction_dates.include?(date) }
-       puts "111111==@@@@@@@@@@@@@2 #{selected_payments.count}"
       payment_collection << selected_payments.sum{ |p| p.amount.to_i}
     end
     return payment_collection
@@ -47,25 +45,19 @@ class User < ActiveRecord::Base
   def  object_list_for_payments_for_next_six_months
     payment_collection = []
     payments = Payment.find_all_by_payee_id(payees.map{|p| p.id})
-    puts "sadeep new 11-------------#{payments.count}----#{dates_for_next_six_months}"
     dates_for_next_six_months.each do |date|
-      selected_payments = payments.select{ |p| p.transaction_dates.include?(date) }
-      puts "sandeep new 22------------- #{selected_payments.count}"
-     # payment_collection << selected_payments.sum{ |p| p.amount.to_i}
+     selected_payments = payments.select{ |p| p.transaction_dates.include?(date) }
      payment_collection << selected_payments
     end
     return payment_collection
   end
 
-
-
-
+  
   def deposits_for_next_six_months
     deposit_collection = []
     deposits = self.deposits.all
     dates_for_next_six_months.each do |date|
       selected_deposits = deposits.select{ |p| p.deposit_dates.include?(date) }
-     puts "22222222==@@@@@@@@@@@@@2 #{selected_deposits.count}"
       deposit_collection << selected_deposits.sum{ |p| p.paycheck_amount.to_i}
     end
     return deposit_collection
@@ -116,11 +108,8 @@ class User < ActiveRecord::Base
   
   def send_email_alerts_on_paycheck
     dates_of_payments = self.payments.all.map{|p| p.transaction_dates}.flatten
-    dates_of_deposits = self.deposits.all.map{|d| d.deposit_dates}.flatten
-        puts "222222222222^^^^^^^^^^^^^^^"
-        puts "again dates_of_payments #{dates_of_payments}----#{dates_of_deposits} "
+    dates_of_deposits = self.deposits.all.map{|d| d.deposit_dates}.flatten  
     if dates_of_payments.include?(Date.today) || dates_of_deposits.include?(Date.today)
-     puts "11111^^^^^^^^^^^^^^^"
       UserMailer.alert_on_paycheck(self).deliver
     else
       return false
@@ -128,14 +117,11 @@ class User < ActiveRecord::Base
   end
   
   def send_mobile_alerts
-   puts "11---------- mobile Alert"
+  
     if self.mobile_alert? && self.mobile?
-     puts "22---------- mobile Alert"
-      if self.sms_delivery_time == "5 days before Paycheck"
-          puts "33---------- mobile Alert"
-        send_mobile_alerts_before_paycheck
+       if self.sms_delivery_time == "5 days before Paycheck"
+          send_mobile_alerts_before_paycheck
       elsif self.sms_delivery_time == "5 days before and on Paycheck day"
-        puts "44---------- mobile Alert"
         send_mobile_alerts_before_paycheck
         send_mobile_alerts_on_paycheck
       end
@@ -143,14 +129,13 @@ class User < ActiveRecord::Base
   end
   
   def send_mobile_alerts_before_paycheck
-   puts "55---------- mobile Alert"
+  
 #    dates_before_payments = self.payments.all.map{|p| p.transaction_dates}.flatten.map{|b| b-4}
 #    dates_before_deposits = self.deposits.all.map{|d| d.deposit_dates}.flatten.map{|c| c-4}
    dates_before_payments = self.payments.all.map{|p| p.transaction_dates}.flatten.map{|b| b-5}
    dates_before_deposits = self.deposits.all.map{|d| d.deposit_dates}.flatten.map{|c| c-5}
-    puts "66 ke pahile wala---------- mobile Alert------#{dates_before_payments}----#{dates_before_deposits}"
+ 
     if dates_before_payments.include?(Date.today) || dates_before_deposits.include?(Date.today)
-     puts "66---------- mobile Alert"
       sms = Moonshado::Sms.new(self.mobile, "You have 5 days left for payments, Please login to mymoneymomma to manage things.")
       sms.deliver_sms
     else
@@ -159,12 +144,11 @@ class User < ActiveRecord::Base
   end
   
   def send_mobile_alerts_on_paycheck
-    puts "77---------- mobile Alert"
+  
     dates_of_payments = self.payments.all.map{|p| p.transaction_dates}.flatten
     dates_of_deposits = self.deposits.all.map{|d| d.deposit_dates}.flatten
-    puts "88 ke pahile wala---------- mobile Alert------#{dates_of_payments}----#{dates_of_deposits}"
+   
     if dates_of_payments.include?(Date.today) || dates_of_deposits.include?(Date.today)
-     puts "88---------- mobile Alert"
       sms = Moonshado::Sms.new(self.mobile, "Today is your Payment day, Please login to mymoneymomma to manage things.")
       sms.deliver_sms
     else
