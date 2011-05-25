@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Money Momma</title>
+
+</head>
+
+<body>
+<table border="0" cellpadding="0" cellspacing="0" width="700px;" align="center" style="background-color:#ececec;">
+<tr><td>
+<!--start inner table-->
+<table width="630" border="0" cellspacing="0" cellpadding="0" align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:bold; color:#030;">
+  <tr>
+    <td colspan="2" width="630" height="36" background="http://www.newtechfusion.com/demo/moneymomma/top.jpg" style="background-repeat:no-repeat;">
+    <p style="font-size:9px; padding-left:260px; margin-bottom:16px;"><a href="http://www.mymoneymomma.com" target="_blank" style="text-decoration:none; color:#030;">MMM Safe &amp; Secure</a></p></td>
+  </tr>
+  <tr>
+    <td width="220" height="48" background="http://www.newtechfusion.com/demo/moneymomma/logo.jpg" style="padding-left:15px;"><a href="http://www.mymoneymomma.com" target="_blank"><img src="http://www.newtechfusion.com/demo/moneymomma/logo.png" border="0" /></a></td>
+    <td width="395" height="40" background="http://www.newtechfusion.com/demo/moneymomma/see_overview.jpg">
+    <p style="padding-left:100px; margin-bottom:22px; font-size:11px;"><a href="http://www.mymoneymomma.com" target="_blank" style="text-decoration:none; color:#030;">See My OverView</a> &nbsp;|&nbsp; <a href="#" target="_blank" style="text-decoration:none; color:#030;">Find Saving</a></p></td>
+  </tr>
+
+  <tr>
+  <td width="630" height="37" colspan="2" background="http://www.newtechfusion.com/demo/moneymomma/contant_01.jpg"></td>
+  </tr>
+
+  <tr>
+  <td colspan="2" width="630" height="39" background="http://www.newtechfusion.com/demo/moneymomma/contant_02.jpg"
+  style="background-repeat:no-repeat;" ><span style="padding-left:120px; font-size:16px;">Your  Paycheck  amount  is $<%= "#{@depositss1[0].paycheck_amount.to_i} " %></span></td>
+   </tr>
+
+  <tr>
+  <td colspan="2" width="630" height="52" background="http://www.newtechfusion.com/demo/moneymomma/contant_03.jpg">
+  	<table width="420" border="0" cellspacing="0" cellpadding="0" align="center" style="line-height:20px;">
+  <tr align="center">
+    <td align="left">NAME OF BILL</td>
+    <td>BILL AMOUNT</td>
+    <td></td>
+  </tr>
+
+  <% @paymentsobject[0].each do |payment|  %>
+   <tr>
+    <td align="left"> <%=  "#{ Payee.find(payment.payee_id).name_on_bill }" %> </td>
+    <td align="center"> <%= "$#{payment.amount}" %> </td>
+    <td align="center"></td>
+  </tr>
+  <% end %>
+
+</table>
+  </td>
+  </tr>
+
+    <tr>
+  <td colspan="2" width="630" height="21" background="http://www.newtechfusion.com/demo/moneymomma/contant_04.jpg"></td>
+  </tr>
+
+   <tr>
+  <td colspan="2" width="630" height="82" background="http://www.newtechfusion.com/demo/moneymomma/contant_05.jpg">
+  <p style="padding-left:110px; padding-right:110px;"><%= "You have to pay $#{@payments1[0]} after 5 days , then your paycheck amount will be $#{@diffrence}"  %> </p></td>
+  </tr>
+
+ <tr>
+  <td colspan="2" background="http://www.newtechfusion.com/demo/moneymomma/contant_060.jpg" width="630" height="21" style="background-repeat:no-repeat;"><span style="padding-left:110px;">
+  <a href="http://www.mymoneymomma.com" target="_blank"><img height="18" src="http://www.newtechfusion.com/demo/moneymomma/login.jpg" border="0" /></a></span></td>
+  </tr>
+
+   <tr>
+  <td colspan="2" width="630" height="61" background="http://www.newtechfusion.com/demo/moneymomma/contant_070.jpg" style="background-repeat:no-repeat;"><p style="padding-left:120px; padding-right:50px;  color:#FFF;">P.S. Want to achieve your goals faster? Use our NEW goals feature to set goals, track your progress and get customized advice.</p></td>
+  </tr>
+
+
+   <tr>
+  <td colspan="2" width="630" height="47" background="http://www.newtechfusion.com/demo/moneymomma/contant_08.jpg" style="background-repeat:no-repeat;"><span style="padding-left:130px;">P.S. Want to achieve your goals faster? Use our NEW goals feature to set goals,<br /><span style="padding-left:130px;">track your progress and get customized advice.</span></span>
+
+  </td>
+   </tr>
+
+  <tr>
+  <td colspan="2">
+  	<table cellpadding="0" cellspacing="0">
+    <tr>
+    <td width="372" height="146" background="http://www.newtechfusion.com/demo/moneymomma/footer_01.jpg" style="background-repeat:no-repeat;">
+
+    <table border="0" cellpadding="0" cellspacing="0" width="220px;" align="right" style="margin-bottom:40px;">
+    <tr valign="top"><td rowspan="2" width="70"><img src="http://www.newtechfusion.com/demo/moneymomma/mob.png" / style="padding-left:8px;"></td>
+    </tr>
+
+    <tr valign="top"><td width="170" style="line-height:22px;"><span style="text-decoration:underline;">Get Money Momma for</span><br />
+<span style="font-size:11px; font-weight:normal; padding-left:25px;"><a href="http://www.mymoneymomma.com" target="_blank" style="text-decoration:none; color:#030;">iPhone</a> | <a href="http://www.mymoneymomma.com" target="_blank" style="text-decoration:none; color:#030;">Android</a></span></td>
+    </tr>
+
+    </table>
+
+    	</td>
+
+
+    <td width="258" height="146" background="http://www.newtechfusion.com/demo/moneymomma/footer_02.jpg" style="background-repeat:no-repeat;">
+    <table width="220" cellpadding="0" cellspacing="0" style="margin-bottom:50px;">
+    <tr>
+    <td align="center" width="100px;" style="padding-left:10px;">Folllow us on:</td>
+    <td>
+    <a href="http://www.mymoneymomma.com" target="_blank"><img src="http://www.newtechfusion.com/demo/moneymomma/fb.jpg" alt="facebook" border="0"/></a>
+    <a href="http://www.mymoneymomma.com" target="_blank"><img src="http://www.newtechfusion.com/demo/moneymomma/twt.png" alt="twitter" border="0" style="padding-left:8px;" /></a>
+    <a href="http://www.mymoneymomma.com" target="_blank"><img src="http://www.newtechfusion.com/demo/moneymomma/rss.png" alt="rss" border="0" style="padding-left:8px;" /></a></td>
+    </tr></table>
+
+    </td>
+    </tr></table>
+  </td>
+  </tr>
+
+</table>
+<!--close inner table-->
+
+</td></tr>
+<tr><td width="700" height="10" style="background-color:#000"></td></tr>
+</table>
+</body>
+</html>
+

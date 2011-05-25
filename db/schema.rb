@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(:version => 20110429103025) do
   end
 
   create_table "payees", :force => true do |t|
-    t.string   "name",           :null => false
-    t.integer  "user_id",        :null => false
+    t.string   "name",           :default => "", :null => false
+    t.integer  "user_id",                        :null => false
     t.string   "address_1"
     t.string   "address_2"
     t.string   "city"
@@ -57,19 +57,19 @@ ActiveRecord::Schema.define(:version => 20110429103025) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "first_name",                             :null => false
+    t.string   "first_name",          :default => "",    :null => false
     t.string   "last_name"
-    t.string   "email",                                  :null => false
+    t.string   "email",               :default => "",    :null => false
     t.string   "state"
     t.string   "country"
     t.string   "zipcode"
     t.date     "birth_date"
     t.boolean  "gender"
     t.boolean  "active",              :default => false, :null => false
-    t.string   "crypted_password",                       :null => false
-    t.string   "password_salt",                          :null => false
-    t.string   "persistence_token",                      :null => false
-    t.string   "single_access_token",                    :null => false
+    t.string   "crypted_password",    :default => "",    :null => false
+    t.string   "password_salt",       :default => "",    :null => false
+    t.string   "persistence_token",   :default => "",    :null => false
+    t.string   "single_access_token", :default => "",    :null => false
     t.string   "perishable_token",    :default => "",    :null => false
     t.integer  "login_count",         :default => 0,     :null => false
     t.integer  "failed_login_count",  :default => 0,     :null => false
