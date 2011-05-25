@@ -8,7 +8,6 @@ class Payment < ActiveRecord::Base
   
   def transaction_dates
     middle_of_month = Date.parse("15.#{created_at.month}.#{created_at.year}")
-    puts "1-------------#{middle_of_month}"
     dates = []
     (1..number_of_payments.to_i+1).each do |num|
       break if dates.length >= number_of_payments.to_i
