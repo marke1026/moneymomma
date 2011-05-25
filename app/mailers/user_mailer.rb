@@ -32,7 +32,7 @@ class UserMailer < ActionMailer::Base
    
       @depositss1 = user.deposits.all
       @payments1 = user.payments_for_next_six_months
-      puts "1------------"
+      puts "1------------#{@payments1}"
       @diffrence = @depositss1[0].paycheck_amount.to_i - @payments1[0]
       puts "2------------"
       @paymentsobject =user.object_list_for_payments_for_next_six_months
