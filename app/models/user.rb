@@ -95,8 +95,8 @@ class User < ActiveRecord::Base
   
   def send_email_alerts_before_paycheck
 
-    dates_before_payments = self.payments.all.map{|p| p.transaction_dates}.flatten.map{|b| b-6}
-    dates_before_deposits = self.deposits.all.map{|d| d.deposit_dates}.flatten.map{|c| c-6}
+    dates_before_payments = self.payments.all.map{|p| p.transaction_dates}.flatten.map{|b| b-5}
+    dates_before_deposits = self.deposits.all.map{|d| d.deposit_dates}.flatten.map{|c| c-5}
     if dates_before_payments.include?(Date.today) || dates_before_deposits.include?(Date.today)
     
       UserMailer.alert_before_paycheck(self).deliver
@@ -132,8 +132,8 @@ class User < ActiveRecord::Base
   
 #    dates_before_payments = self.payments.all.map{|p| p.transaction_dates}.flatten.map{|b| b-4}
 #    dates_before_deposits = self.deposits.all.map{|d| d.deposit_dates}.flatten.map{|c| c-4}
-   dates_before_payments = self.payments.all.map{|p| p.transaction_dates}.flatten.map{|b| b-6}
-   dates_before_deposits = self.deposits.all.map{|d| d.deposit_dates}.flatten.map{|c| c-6}
+   dates_before_payments = self.payments.all.map{|p| p.transaction_dates}.flatten.map{|b| b-5}
+   dates_before_deposits = self.deposits.all.map{|d| d.deposit_dates}.flatten.map{|c| c-5}
  
     if dates_before_payments.include?(Date.today) || dates_before_deposits.include?(Date.today)
       sms = Moonshado::Sms.new(self.mobile, "You have 5 days left for payments, Please login to mymoneymomma to manage things.")
