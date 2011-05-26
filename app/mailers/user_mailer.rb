@@ -30,11 +30,18 @@ class UserMailer < ActionMailer::Base
   
   def alert_before_paycheck(user)
    
-      @depositss1 = user.deposits.all
-      @payments1 = user.payments_for_next_six_months
-      puts "1------------#{@payments1}"
-      @diffrence = @depositss1[0].paycheck_amount.to_i - @payments1[0]
-      puts "2------------"
+      depositss1 = user.deposits.all
+      @payments1 = user.payments_for_next_six_months  
+    if !depositss1.empty?
+          @depositamount = depositss1.sum{ |p| p.paycheck_amount.to_i}
+    else
+          @depositamount = 0.to_i
+    end
+     
+     # @diffrence = @depositss1[0].paycheck_amount.to_i - @payments1[0]
+    @diffrence = @depositamount - @payments1[0]
+
+    puts "2------------"
       @paymentsobject =user.object_list_for_payments_for_next_six_months
   
     mail(:to => user.email, :subject => "paycheck alert before 5 days")
