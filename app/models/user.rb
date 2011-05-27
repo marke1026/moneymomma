@@ -102,6 +102,7 @@ class User < ActiveRecord::Base
       UserMailer.alert_before_paycheck(self).deliver
     else
       return false
+	  
     end
   end
   

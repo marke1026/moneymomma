@@ -42,12 +42,12 @@ class UserMailer < ActionMailer::Base
       @diffrence = @depositamount - @payments1[0]
       @paymentsobject =user.object_list_for_payments_for_next_six_months
   
-    mail(:to => user.email, :subject => "paycheck alert before 5 days")
+    mail(:to => user.email, :subject => "Money Momma 5 day notification before your next paycheck deposit!")
     content_type "text/html"
   end
   
   def alert_on_paycheck(user)
-    mail(:to => user.email, :subject => "paycheck alert")
+    mail(:to => user.email, :subject => "Money Momma notifcation that your paycheck has been deposited!")
     content_type "text/html"
   end
 end
