@@ -8,8 +8,4 @@ task :cron => :environment do
       user.send_email_alerts
       user.send_mobile_alerts
     end
-
-#      user = User.find(13)
-#      user.send_email_alerts
-#      user.send_mobile_alerts
 end
