@@ -30,6 +30,6 @@ Money::Application.configure do
       config.production_environment = false
     end
   end
-  
+ADDRESS_FOR_IMAGES="http://mymoneymomma.heroku.com/images/newimages"
 end
 

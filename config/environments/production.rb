@@ -57,5 +57,5 @@ Money::Application.configure do
       
     end
   end
-  
+ ADDRESS_FOR_IMAGES="http://mymoneymomma.heroku.com/images/newimages"
 end
