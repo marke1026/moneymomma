@@ -44,6 +44,12 @@ GEM
     activesupport (3.0.3)
     arel (2.0.10)
     builder (2.1.2)
+    capistrano (2.6.0)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     dynamic_form (1.1.4)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -52,6 +58,7 @@ GEM
       activesupport (>= 2.3.7)
       i18n (~> 0.4)
     haml (3.1.2)
+    highline (1.6.2)
     i18n (0.6.0)
     mail (2.2.19)
       activesupport (>= 2.3.6)
@@ -62,7 +69,15 @@ GEM
     moonshado-sms (1.1.0)
       rest-client (= 1.6.0)
       yajl-ruby (= 0.7.7)
+    mysql (2.8.1)
     mysql (2.8.1-x86-mingw32)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.1.4)
+    net-ssh-gateway (1.1.0)
+      net-ssh (>= 1.99.1)
     polyglot (0.3.1)
     rack (1.2.3)
     rack-mount (0.6.14)
@@ -87,6 +102,7 @@ GEM
     rake (0.9.2)
     rest-client (1.6.0)
       mime-types (>= 1.16)
+    ruby-mysql (2.9.4)
     thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
@@ -99,6 +115,7 @@ PLATFORMS
 
 DEPENDENCIES
   authlogic!
+  capistrano
   dynamic_form
   formtastic
   haml
@@ -107,3 +124,4 @@ DEPENDENCIES
   prototype_legacy_helper (= 0.0.0)!
   rails (= 3.0.3)
   rails3-generators
+  ruby-mysql
