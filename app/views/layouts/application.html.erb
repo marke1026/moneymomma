@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><%= content_for?(:title) ? yield(:title) : "Money" %> </title>
+
+    <%= stylesheet_link_tag 'stylehome' %>
+    <%= stylesheet_link_tag "theme", "notice" %>
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag "swfobject" %>
+    <%= csrf_meta_tag %>
+    <%= yield(:head) %>
+
+   
+  </head>
+
+  <body>
+
+    <!--header part Start-->
+<div id="header_part">
+	<div id="header_banner">
+    <div class="header_main_containor">
+        	<div class="heder_top_refresh"><img src="images/imagehome/refresh_icon.png"/>Your accounts are all up to date Refresh the page to  get your newst info</div>
+            <div class="header_top_link"><a href="#"><img src="images/imagehome/Lock_icon.png" border="0"/></a> <a href="#">Money Momma Safe & Secure</a></div>
+            <div class="logo_part"><img src="/images/imagehome/logo_.png"  /></div>
+             <div id="login">
+               <%- if current_user %>
+                  <%= "Welcome,#{current_user.first_name}|" %>
+                  <%= link_to "View Profile", user_path('me') %>
+                  <%= "|" %>
+                  <%= link_to "Sign Out", "/logout" %>
+               <% else %>
+                  <%= link_to "Login", new_user_session_path %>
+                  <%= link_to "Sign Up", new_user_path %>
+               <%- end%>
+             </div>
+          
+
+
+
+
+   <div class="header_logo_nav">
+      <div class="header_nav">
+                  <div class="header_nav_l_corner"></div>
+
+                  <div class="header_nav_c_corner">
+			 <%= link_to "Overview", payments_path , :style => "border-left-style:none;" %>
+                         <%= link_to "Payees", payees_path %>
+                         <%= link_to "Recuring Payments", new_payment_path ,:style => "padding-top:5px; height:35px;" %>
+                         <%= link_to "My Financial Info", new_deposit_path ,:style => "padding-top:8px; height:32px;"%>
+                         <%= link_to "Payment Activity", transactions_path ,:style => "padding-top:8px; height:32px;"%>
+                         <%= link_to "Email & Alerts", email_alert_users_path , :style => "border-right-style:none;" %>
+
+
+                  </div>
+
+                  <div class="header_nav_r_corner"></div>
+       </div>
+   </div>
+</div>
+	</div>
+</div>
+    <!--header part End-->
+
+
+    <!--containor Part Start-->
+<div class="main_containor_first">
+   <div class="main_containor">
+       <%= yield %>
+   </div>
+ </div>
+   <!--containor Part End-->
+
+
+
+
+
+    <!--Footer Part Start-->
+
+<div class="footer_part">
+	<div class="footer_containor">
+		<div class="footer_link">
+        <a href="#">WHAT IS MINT?</a> <a href="#">HOW IT WORKS</a> <a href="#">FIND SAVINGS</a> <a href="#">COMMUNITY</a> <a href="#" style="border-right-style:none;">COMPANY</a>
+        </div>
+      <div class="copyright">Copyright © Money momma  2011 All Rights Reserved | new tech fusion</div>
+    </div>
+</div>
+    <!--Footer Part Start-->
+
+  </body>
+</html>

@@ -9,7 +9,7 @@ class PaymentsController < ApplicationController
   def index
     @payments = Payment.find(:all, :conditions => {:payee_id => current_user.payees})
     @deposits = current_user.deposits.find(:all)
-    @graph = Graph.new(bar_graph_payments_path, 1000, 500, :base_path => '/')
+    @graph = Graph.new(bar_graph_payments_path, 605, 350, :base_path => '/')
   end
   
   def new

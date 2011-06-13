@@ -58,7 +58,7 @@ h1 {
 
 #login{
 	float:right;
-	margin:20px 90px 0px 0px;
+	margin:20px -90px 0px 0px;
 }
 
 /*Credits: Dynamic Drive CSS Library */

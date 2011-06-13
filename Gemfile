@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
 
-gem 'ruby-mysql'
+#gem 'ruby-mysql'
 gem 'mysql'
 gem 'haml'
 gem 'formtastic'
@@ -13,4 +13,4 @@ gem 'prototype_legacy_helper', '0.0.0', :git => 'git://github.com/rails/prototyp
 gem 'moonshado-sms'
 
 # Deploy with Capistrano
-gem 'capistrano'
+#gem 'capistrano'
