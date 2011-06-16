@@ -149,6 +149,11 @@ p {
 
 }
 
+.header_nav_c_corner a:hover {
+	color: #462B00;
+	background-color: #FFCD96;
+}
+
 .header_nav_l_corner {
 	background-image: url(/images/imagehome/header_nav01.png);
 	float: left;
@@ -261,7 +266,7 @@ p {
 	color: #006b38;
 	font-weight: bold;
 	display: block;
-	width: 90px;
+	/*width: 90px;*/
 	float: left;
 	text-align: center;
 	line-height: 35px;
@@ -274,7 +279,7 @@ p {
 }
 .containt_suncost {
 	color: #006b38;
-	padding:10px 0 0 25px;
+	padding:9px 0 0 25px;
 	float: left;
 	font-weight: bold;
 	text-align:left;
@@ -284,6 +289,7 @@ p {
 	color: #006b38;
 	font-weight: bold;
 	padding-top: 10px;
+        padding-left: 24px;
 }
 
 
@@ -297,6 +303,7 @@ p {
 	padding-left: 25px;
 	float: left;
 	margin: 5px;
+        clear: both;
 }
 .time_link {
 	float: right;

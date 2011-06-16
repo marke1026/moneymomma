@@ -20,75 +20,71 @@
 
 
                 <div class="account_subheading"><img src="images/imagehome/bullete.jpg" /><img src="images/imagehome/cash.jpg" />
-                  <p>Cash </p><p></p><p>$2,098.2</p></div>
+                  <p>My financial deposits</p></div>
 
                 <!--suncocost_start-->
+             <%- @deposits.each do |d| %>
                 <div class="containt">
-                  <div class="containt_suncost">Suncost School FCU</div>
-                  <div class="containt_suncost_price">$5.36</div>
+                  <div class="containt_suncost">Paycheck Amount</div>
+                  <div class="containt_suncost_price"><%= "$#{d.paycheck_amount}" %></div>
+                </div>
+
+               
+
+                <div class="containt">
+                  <div class="containt_suncost">Paycheck Frequency</div>
+                  <div class="containt_suncost_price"><%= "#{d.paycheck_frequency}" %></div>
                 </div>
 
                 <div class="time">
-                  <div class="time_second"><a href="#">4 second ago</a></div>
-                  <div class="time_link"><a href="#">REGULAR SAVING</a></div>
-                </div>
-
-                <div class="containt">
-                  <div class="containt_suncost">Suncost School FCU</div>
-                  <div class="containt_suncost_price">$1.37</div>
-                </div>
-
-                <div class="time">
-                  <div class="time_second"><a href="#">4 second ago</a></div>
-                  <div class="time_link"><a href="#">SPECIAL SAVING</a></div>
-                </div>
+                        <div class="time_second"><%=  link_to "Edit", edit_deposit_path(d) %></div>
+                        <div class="time_link"><%=  link_to_remote "Destroy", :url=>deposit_path(d), :method=>"delete", :confirm=>"Are you sure ?" %></div>
+                 </div>
+              
+                <%- end%>
                 <!--suncocost_start-->
 
                 <div class="account_subheading"><img src="images/imagehome/bullete.jpg" /><img src="images/imagehome/credite.jpg" />
-                  <p>Credit card	 </p><p></p><p>-$1,867.73</p></div>
+                  <p>Recurring payments	</p></div>
 
                 <!--suncocost_start-->
-                <div class="containt">
-                  <div class="containt_suncost">American Express Cre..</div>
-                  <div class="containt_suncost_price">$5.36</div>
-                </div>
 
-                <div class="time">
-                  <div class="time_second"><a href="#">15 second ago</a></div>
-                  <div class="time_link"><a href="#">Premier rewards Gold</a></div>
-                </div>
+              <% @payments.each do |p| %>
 
                 <div class="containt">
-                  <<div class="containt_suncost">American Express Cre..</div>
-                  <div class="containt_suncost_price">$5.36</div>
+                  <div class="containt_suncost">Payee</div>
+                  <div class="containt_suncost_price"><%= "#{Payee.find(p.payee_id).name}" %></div>
                 </div>
 
-                <div class="time">
-                  <div class="time_second"><a href="#">4 second ago</a></div>
-                  <div class="time_link"><a href="#">Premier rewards Gold</a></div>
+              
+
+                <div class="containt">
+                  <<div class="containt_suncost">Amount</div>
+                  <div class="containt_suncost_price"><%= "$#{p.amount}" %></div>
                 </div>
+
+              
 
 
                 <div class="containt">
-                  <div class="containt_suncost">Suncost School FCU</div>
-                  <div class="containt_suncost_price">$1,867.73</div>
+                  <div class="containt_suncost">Delivery Time</div>
+                  <div class="containt_suncost_price"><%= "#{p.delivery_time}" %></div>
                 </div>
 
-                <div class="time">
-                  <div class="time_second"><a href="#">15 second ago</a></div>
-                  <div class="time_link"><a href="#">Premier rewards Gold</a></div>
-                </div>
+             
 
                 <div class="containt">
-                  <div class="containt_suncost">Suncost School FCU</div>
-                  <div class="containt_suncost_price">$5.36</div>
+                  <div class="containt_suncost">No. of Payments</div>
+                  <div class="containt_suncost_price"><%= "#{p.number_of_payments}" %></div>
                 </div>
 
                 <div class="time">
-                  <div class="time_second"><a href="#">4 second ago</a></div>
-                  <div class="time_link"><a href="#">REGULAR SAVING</a></div>
+                  <div class="time_second"><%=  link_to "Edit", edit_payment_path(p) %></div>
+                  <div class="time_link"><%= link_to_remote "Destroy", :url=>payment_path(p), :method=>"delete", :confirm=>"Are you sure ?"   %></div>
                 </div>
-                <!--suncocost_start-->
+
+        <%- end%>
+               <!--suncocost_start-->
                 <div class="account_subheading"><img src="images/imagehome/bullete.jpg" /><img src="images/imagehome/Loan.jpg" />
                   <p>Loan </p><p></p><p>$2,098.2</p></div>
 
@@ -131,10 +127,13 @@
             <div class="right_second_alert">
               <div class="contone">
 
+            <div id="textboxid">
                 <div class="first_cont"><img src="images/imagehome/bullet0.png" />
                   <blockquote>In the past 30 days, you spent <span class="alert_highlight">$291.39</span> on <span class="alert_highlight">Gym.</span> Usually you spend <span class="alert_highlight">$45.</span></blockquote> </div>
-                <div class="first_right">June 06 <img src="images/imagehome/timebullet.png" /></div>
-              </div>
+                <div class="first_right">June 06 <input id="greatphoto"  type="image"  src="images/imagehome/timebullet.png" />
+                </div>
+            </div>>
+            </div>
 
               <div class="contone">
 
@@ -208,7 +207,7 @@
 
             <div class="left_corner"></div>
             <div class="right_center">
-              <div class="alert"><img src="images/imagehome/budget.png"/> BUDGET JUNE 2011</div>
+              <div class="alert"><img src="images/imagehome/budget.png"/> Money momma graph</div>
             </div>
             <div class="right_corner"></div>
 
@@ -242,3 +241,10 @@
 
     <!--Footer Part Start-->
 
+
+<script>
+     $("#greatphoto").click(function(){
+       alert ("ddd");
+       $("#textboxid").hide();
+      });
+</script>
