@@ -82,8 +82,9 @@
                   <div class="time_second"><%=  link_to "Edit", edit_payment_path(p) %></div>
                   <div class="time_link"><%= link_to_remote "Destroy", :url=>payment_path(p), :method=>"delete", :confirm=>"Are you sure ?"   %></div>
                 </div>
-
+  
         <%- end%>
+
                <!--suncocost_start-->
                 <div class="account_subheading"><img src="images/imagehome/bullete.jpg" /><img src="images/imagehome/Loan.jpg" />
                   <p>Loan </p><p></p><p>$2,098.2</p></div>
@@ -125,43 +126,52 @@
 
           <div class="right_containt_ka">
             <div class="right_second_alert">
-              <div class="contone">
-
-            <div id="textboxid">
+              
+              
+           
+            <div id="textboxid_1">
+            <div class="contone">
                 <div class="first_cont"><img src="images/imagehome/bullet0.png" />
                   <blockquote>In the past 30 days, you spent <span class="alert_highlight">$291.39</span> on <span class="alert_highlight">Gym.</span> Usually you spend <span class="alert_highlight">$45.</span></blockquote> </div>
-                <div class="first_right">June 06 <input id="greatphoto"  type="image"  src="images/imagehome/timebullet.png" />
-                </div>
-            </div>>
+                <div class="first_right">June 06 <input  value="image"  type="image"  src="images/imagehome/timebullet.png" onclick="clickToHide('1');" style="margin: 0 10px 0 10px; padding-top: 0px;" /></div>
+            </div>
             </div>
 
-              <div class="contone">
-
+   
+               <div id="textboxid_2">
+                 <div class="contone">
                 <div class="first_cont"><img src="images/imagehome/bullet0.png" /><blockquote>Your <span class="alert_highlight">$4.557.80</span> deposit <span class="alert_highlight">(Direct Deposit Financial)</span> to your Suncost Schools FCU-
 					REGULER CHECKING account is now available.</blockquote> </div>
-                <div class="first_right">June 06 <img src="images/imagehome/timebullet.png" /></div>
+                <div class="first_right">June 06 <input  value="image"  type="image"  src="images/imagehome/timebullet.png" onclick="clickToHide('2');" style="margin: 0 10px 0 10px; padding-top: 0px;" /></div>
+              </div>
               </div>
 
 
-              <div class="contone">
-
+              
+             <div id="textboxid_3">
+               <div class="contone">
                 <div class="first_cont"><img src="images/imagehome/bullet0.png" /><blockquote>last month, you spent <span class="alert_highlight">$949.17</span> on Groceries. This exceeds your budget of <span class="alert_highlight">$800</span> by <span class="alert_highlight">$149.</span></blockquote> </div>
-                <div class="first_right">June 06 <img src="images/imagehome/timebullet.png" /></div>
-              </div>
+                <div class="first_right">June 06 <input  value="image"  type="image"  src="images/imagehome/timebullet.png" onclick="clickToHide('3');" style="margin: 0 10px 0 10px; padding-top: 0px;" /></div>
+             </div>
+             </div>
 
 
-              <div class="contone">
-
+              
+              <div id="textboxid_4">
+                <div class="contone">
                 <div class="first_cont"><img src="images/imagehome/bullet0.png" /><blockquote>Last month, you spent <span class="alert_highlight">$398.43</span> on <span class="alert_highlight">gas & fuel.</span> This exceeds your budget of <span class="alert_highlight">$200</span> by <span class="alert_highlight">$198</span></blockquote> </div>
-                <div class="first_right">June 06 <img src="images/imagehome/timebullet.png" /></div>
-
+                <div class="first_right">June 06 <input  value="image"  type="image"  src="images/imagehome/timebullet.png" onclick="clickToHide('4');" style="margin: 0 10px 0 10px; padding-top: 0px;" /></div>
+                </div>
               </div>
 
 
-              <div class="contone">
+              
+               <div id="textboxid_5">
+                 <div class="contone">
                 <div class="first_cont"><img src="images/imagehome/bullet0.png" /><blockquote>Last month, you spent <span class="alert_highlight">$398.43</span> on <span class="alert_highlight">gas & fuel.</span> This exceeds your budget of <span class="alert_highlight">$200</span> by <span class="alert_highlight">$198</span></blockquote> </div>
-                <div class="first_right">June 06 <img src="images/imagehome/timebullet.png" /></div>
-              </div>
+                <div class="first_right">June 06 <input  value="image"  type="image"  src="images/imagehome/timebullet.png" onclick="clickToHide('5');" style="margin: 0 10px 0 10px; padding-top: 0px;" /></div>
+               </div >
+               </div>
 
               <div class="contone contain_border">
                 <div class="first_cont"><a href="#"><img src="images/imagehome/Free.png" border="0"/></a>
@@ -242,9 +252,17 @@
     <!--Footer Part Start-->
 
 
-<script>
-     $("#greatphoto").click(function(){
-       alert ("ddd");
-       $("#textboxid").hide();
-      });
+<script type='text/javascript'>
+
+function clickToHide(Id)
+ {
+
+    // $("#greatphoto").click(function(){
+       //alert ("ddd"+Id);
+       $("#textboxid_"+Id).hide();
+     // });
+
+ }
+
 </script>
+
