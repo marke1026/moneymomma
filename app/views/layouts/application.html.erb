@@ -29,19 +29,28 @@
     <div class="header_main_containor">
         	<div class="heder_top_refresh"><img src="images/imagehome/refresh_icon.png"/>Your accounts are all up to date Refresh the page to  get your newst info</div>
             <div class="header_top_link"><a href="#"><img src="images/imagehome/Lock_icon.png" border="0"/></a> <a href="#">Money Momma Safe & Secure</a></div>
+
+
+        
+
+
+            <div id="logo_base">
             <div class="logo_part"><img src="/images/imagehome/logo_.png"  /></div>
              <div id="login">
+             <ul>
                <%- if current_user %>
-                  <%= "Welcome,#{current_user.first_name}|" %>
-                  <%= link_to "View Profile", user_path('me') %>
-                  <%= "|" %>
-                  <%= link_to "Sign Out", "/logout" %>
+                <li style="color:#fff;"> <%= "Welcome,#{current_user.first_name}" %> <span class="line-spacing">|</span> </li>
+                <li>  <%= link_to "View Profile", user_path('me') %><span class="line-spacing">|</span></li>
+                <li>   <%= link_to "Sign Out", "/logout" %> </li>
                <% else %>
                   <%= link_to "Login", new_user_session_path %>
                   <%= link_to "Sign Up", new_user_path %>
                <%- end%>
+             
+             
+              </ul>
              </div>
-          
+          </div>
 
 
 
@@ -49,20 +58,19 @@
    <div class="header_logo_nav">
       <div class="header_nav">
                   <div class="header_nav_l_corner"></div>
-
                   <div class="header_nav_c_corner">
 			 <%= link_to "Overview", payments_path , :style => "border-left-style:none;" %>
                          <%= link_to "Payees", payees_path %>
                          <%= link_to "Recuring Payments", new_payment_path ,:style => "padding-top:5px; height:35px;" %>
-                         <%= link_to "My Financial Info", new_deposit_path ,:style => "padding-top:8px; height:32px;"%>
-                         <%= link_to "Payment Activity", transactions_path ,:style => "padding-top:8px; height:32px;"%>
+                         <%= link_to "My Financial Info", new_deposit_path ,:style=>"padding-top: 6px; height: 34px; width:90px;"%>
+                         <%= link_to "Payment Activity", transactions_path ,:style=>"padding-top:5px; height:35px; width:92px;"%>
                          <%= link_to "Email & Alerts", email_alert_users_path , :style => "border-right-style:none;" %>
 
 
                   </div>
 
                   <div class="header_nav_r_corner"></div>
-       </div>
+     </div>
    </div>
 </div>
 	</div>
