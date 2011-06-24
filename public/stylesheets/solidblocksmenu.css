@@ -1,0 +1,103 @@
+ul{
+	margin:0;
+	padding:0;
+	list-style-type:none;	
+}
+
+.solidblockmenu ul{
+	margin-left:24px;
+	padding: 0;
+	float: left;
+	font: bold 13px Arial;
+	width: 588px;
+/*	border-bottom: 1px solid #fff;
+	border-width: 1px 0;*/
+	background: black url(media/blockdefault.gif) center center repeat-x;
+	-moz-background-clip: border;
+	-moz-background-origin: padding;
+	-moz-background-size: auto auto;
+	-moz-border-radius:6px;
+	-webkit-border-radius: 6px;
+	-khtml-border-radius: 6px;
+}
+
+.solidblockmenu li{
+display: inline;
+}
+
+.solidblockmenu li a{
+float: left;
+color: white;
+padding: 9px 11px;
+text-decoration: none;
+border-right: 1px solid white;
+}
+.solidblockmenu li a .last {
+border: none !important;}
+
+
+
+
+
+.solidblockmenu li a:visited{
+color: white;
+}
+
+.solidblockmenu li a:hover, .solidblockmenu li a.current{
+color: white;
+background: transparent url(media/blockactive.gif) center center repeat-x;
+	border: 1px solid #fff;
+	-moz-background-clip: border;
+	-moz-background-origin: padding;
+	-moz-background-size: auto auto;
+	-moz-border-radius:6px;
+	-webkit-border-radius: 6px;
+	-khtml-border-radius: 6px;
+
+}
+
+.tabcontainer{
+	/*clear: left;
+	width:612px; /*width of 2nd level sub menus*/
+	/*height:1.5em;*/ /*height of 2nd level sub menus. Set to largest's sub menu's height to avoid jittering.*/
+	margin-left:24px;
+	height: 51px;
+	position:static;
+	*position:relative;
+	*height: auto !important;
+	
+	
+}
+.tabcontainer.ieclass #sb1 ul {
+	margin: 0px;
+}
+.tabcontainer.ieclass #sb1 li {
+	float: left;
+}
+.tabcontainer.ieclass #sb1 li a {
+	text-decoration: none;
+	color: #000;
+	padding-right: 13px;
+	padding-left: 13px;
+}
+.main {
+	background-color: #903;
+	height: 500px;
+	width: 612px;
+}
+.tabcontainer.ieclass #sb1 li a:hover {
+	text-decoration: underline;
+}
+
+
+*:first-child+html .ieclass{ /*IE7 hack to remove gap between menu and sub contents*/
+margin-top: -1em;
+}
+
+* html .ieclass{ /*IE6 and below hack to remove gap between menu and sub contents*/
+margin-top: -1em;
+}
+
+.tabcontent{
+display:none;
+}

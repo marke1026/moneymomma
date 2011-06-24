@@ -11,8 +11,9 @@
           <!--leftcontaint_start-->
           <div id="left_containt">
  <!-- start left_bg-->
-<div class="left_bg">
-            <table width="270" border="0" cellspacing="0" cellpadding="0" align="center">
+<div  class="left_bg_upper">
+ <div class="left_bg">
+ <table width="270" border="0" cellspacing="0" cellpadding="0" align="center">
   <tr class="top_heading">
     <td height="36" width="30"><span class="heading_obj"><img src="images/imagehome/account_bullet.png" alt="" title="" /></span></td>
     <td>Account</td>
@@ -25,6 +26,13 @@
         <td class="heading_bg"><b>My financial deposits</b></td></tr>
         </table></td>
     </tr>
+
+  </table>
+  </div>
+
+ <div class="left_bg_above">
+    <marquee    direction="up" width="255" scrollamount="2" >
+   <table  border="0" cellspacing="0" cellpadding="0" align="center">
 
 <%- @deposits.each do |d| %>
     <tr>
@@ -63,16 +71,25 @@
     </tr>
 
 <%- end%>
-
-
+  </table>
+ </marquee>
+ </div>
+<div class="left_bg_middle">
+   <table width="270" border="0" cellspacing="0" cellpadding="0" align="center">
     <tr>
     <td colspan="4"><table cellpadding="0" cellspacing="0" width="245" height="35" align="left">
     	<tr><td width="8"></td><td class="heading_bg space" width="55"><img src="images/imagehome/bullete.jpg" />&nbsp;<img src="images/imagehome/credite.jpg" /></td>
         <td class="heading_bg"><b>Recurring payments</b></td></tr>
         </table></td>
     </tr>
+</table>
+</div>
 
-   <% @payments.each do |p| %>
+ 
+ <div class="left_bg_below">
+   <marquee    direction="up" width="255" scrollamount="2" >
+ <table  border="0" cellspacing="0" cellpadding="0" align="center">
+  <% @payments.each do |p| %>
     <tr>
     <td colspan="4"><table cellpadding="0" cellspacing="0" width="245" height="35" align="left" class="text_content">
     	<tr><td width="8" height="30"></td>
@@ -112,9 +129,11 @@
         <td align="left"  class="border_tp border_bt">&nbsp;&nbsp;<span class="destroy_link"><%= link_to_remote "Destroy", :url=>payment_path(p), :method=>"delete", :confirm=>"Are you sure ?"   %></span></td></tr>
          </table></td>
     </tr>
- <%- end%>
-</table>
-</div>
+  <%- end%>
+
+ </table>
+</marquee>
+ </div>
  <!-- close left_bg-->
 
             
@@ -122,7 +141,7 @@
           </div>
           <!--leftcontaint_End-->
         </div>
-
+</div>
 
 
 

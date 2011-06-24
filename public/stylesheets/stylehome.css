@@ -251,14 +251,55 @@ ul{
 
 
 /*---------------start user account---------------*/
-.left_bg {
+.left_bg_upper {
 	background-image: url(/images/imagehome/left_bg.jpg);
 	background-repeat: no-repeat;
 	background-position: top;
 	width: 280px;
-	height: 462px;
+	height: 800px;
 	float: left;
 	padding-top: 48px;
+	color: #006b38;
+}
+
+.left_bg {
+/*	background-image: url(/images/imagehome/left_bg.jpg);*/
+	background-repeat: no-repeat;
+	background-position: top;
+	width: 280px;
+	height: 71px;
+	float: left;
+/*	padding-top: 48px;*/
+	color: #006b38;
+}
+.left_bg_above {
+/*	background-image: url(/images/imagehome/left_bg.jpg);*/
+	background-repeat: no-repeat;
+	background-position: top;
+	width: 280px;
+	height: 50px;
+	float: left;
+/*	padding-top: 48px;*/
+	color: #006b38;
+}
+.left_bg_middle {
+/*	background-image: url(/images/imagehome/left_bg.jpg);*/
+	background-repeat: no-repeat;
+	background-position: top;
+	width: 280px;
+	height: 25px;
+	float: left;
+	padding-top: 150px;
+	color: #006b38;
+}
+.left_bg_below {
+	
+	background-repeat: no-repeat;
+	background-position: top;
+	width: 280px;
+	height: 200px;
+	float: left;
+	padding-top: 10px;
 	color: #006b38;
 }
 .edit_link a {

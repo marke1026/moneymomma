@@ -5,20 +5,27 @@
     <title><%= content_for?(:title) ? yield(:title) : "Money" %> </title>
 
     <%= stylesheet_link_tag 'stylehome' %>
+    <%= stylesheet_link_tag 'solidblocksmenu' %>
     <%= stylesheet_link_tag "theme", "notice" %>
     <%= javascript_include_tag :defaults %>
     <%= javascript_include_tag "swfobject" %>
 
+   <%= javascript_include_tag "ddtabmenu" %>
     <%= javascript_include_tag "jquery-1.5.2.min" %>
     <%= javascript_include_tag "jquery-ui.min" %>
     <%= javascript_include_tag "jquery.min" %>
-     <%= javascript_include_tag "jquery" %>
+    <%= javascript_include_tag "jquery" %>
 
 
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
 
-   
+ <script type="text/javascript">
+//SYNTAX: ddtabmenu.definemenu("tab_menu_id", integer OR "auto")
+ddtabmenu.definemenu("ddtabs3", 0) //initialize Tab Menu #3 with 2nd tab selected
+
+
+</script>
   </head>
 
   <body>
