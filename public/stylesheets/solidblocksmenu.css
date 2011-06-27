@@ -9,7 +9,7 @@ ul{
 	padding: 0;
 	float: left;
 	font: bold 13px Arial;
-	width: 588px;
+/*	width: 588px;*/
 /*	border-bottom: 1px solid #fff;
 	border-width: 1px 0;*/
 	background: black url(/images/imagehome/blockdefault.gif) center center repeat-x;
@@ -40,19 +40,19 @@ border: none !important;}
 
 
 .solidblockmenu li a:visited{
-color: white;
+color: #5C3700;
 }
 
 .solidblockmenu li a:hover, .solidblockmenu li a.current{
-color: white;
+color: #fff;
 background: transparent url(/images/imagehome/blockactive.gif) center center repeat-x;
 	border: 1px solid #fff;
-	-moz-background-clip: border;
+/*	-moz-background-clip: border;
 	-moz-background-origin: padding;
 	-moz-background-size: auto auto;
 	-moz-border-radius:6px;
 	-webkit-border-radius: 6px;
-	-khtml-border-radius: 6px;
+	-khtml-border-radius: 6px;*/
 
 }
 

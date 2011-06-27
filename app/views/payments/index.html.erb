@@ -5,8 +5,33 @@
 
 
     <!--containor Part Start-->
-   
-        <div id="left_part">
+ <script type="text/javascript">
+			$(function()
+			{
+				// this initialises the demo scollpanes on the page.
+				
+				$('#pane3').jScrollPane(
+					{
+						showArrows: true,
+						topCapHeight: 30
+					}
+				);
+
+			    $('#pane4').jScrollPane(
+					{
+						showArrows: true,
+						topCapHeight: 30
+					}
+				);
+
+
+			});
+
+</script>
+
+
+
+    <div id="left_part">
           <div class="left_image"></div>
           <!--leftcontaint_start-->
           <div id="left_containt">
@@ -31,11 +56,15 @@
   </div>
 
  <div class="left_bg_above">
-    <marquee    direction="up" width="255" scrollamount="2" >
-   <table  border="0" cellspacing="0" cellpadding="0" align="center">
+   
+  
+<div id="pane4" class="scroll-pane">
+  <table  border="0" cellspacing="0" cellpadding="0" align="center">
+    <%- @deposits.each do |d| %>
 
-<%- @deposits.each do |d| %>
-    <tr>
+
+
+     <tr>
     <td colspan="4"><table cellpadding="0" cellspacing="0" width="245" height="35" align="left" class="text_content">
     	<tr><td width="8" height="30"></td>
         <td><b class="space">Paycheck Amount</b></td>
@@ -65,14 +94,15 @@
     <tr>
     <td colspan="4"><table cellpadding="0" cellspacing="0" width="245" height="25" align="left" class="edit_destroy">
     	<tr><td width="8"></td>
-        <td width="190" align="right" class="border_tp border_bt"><span class="edit_link"><%=  link_to "Edit", edit_deposit_path(d) %></span> &nbsp; | </td>
+        <td width="178" align="right" class="border_tp border_bt"><span class="edit_link"><%=  link_to "Edit", edit_deposit_path(d) %></span> &nbsp; | </td>
         <td align="left"  class="border_tp border_bt">&nbsp;&nbsp;<span class="destroy_link"><%=  link_to_remote "Destroy", :url=>deposit_path(d), :method=>"delete", :confirm=>"Are you sure ?" %></span></td></tr>
          </table></td>
     </tr>
 
 <%- end%>
-  </table>
- </marquee>
+  
+   </table>
+ </div>
  </div>
 <div class="left_bg_middle">
    <table width="270" border="0" cellspacing="0" cellpadding="0" align="center">
@@ -87,8 +117,9 @@
 
  
  <div class="left_bg_below">
-   <marquee    direction="up" width="255" scrollamount="2" >
- <table  border="0" cellspacing="0" cellpadding="0" align="center">
+   
+<div id="pane3" class="scroll-pane">
+  <table  border="0" cellspacing="0" cellpadding="0" align="center">
   <% @payments.each do |p| %>
     <tr>
     <td colspan="4"><table cellpadding="0" cellspacing="0" width="245" height="35" align="left" class="text_content">
@@ -125,14 +156,15 @@
     <tr>
     <td colspan="4"><table cellpadding="0" cellspacing="0" width="245" height="25" align="left" class="edit_destroy">
     	<tr><td width="8"></td>
-        <td width="190" align="right"  class="border_tp border_bt"><span class="edit_link"><%=  link_to "Edit", edit_payment_path(p) %></span> &nbsp; | </td>
+        <td width="178" align="right"  class="border_tp border_bt"><span class="edit_link"><%=  link_to "Edit", edit_payment_path(p) %></span> &nbsp; | </td>
         <td align="left"  class="border_tp border_bt">&nbsp;&nbsp;<span class="destroy_link"><%= link_to_remote "Destroy", :url=>payment_path(p), :method=>"delete", :confirm=>"Are you sure ?"   %></span></td></tr>
          </table></td>
     </tr>
   <%- end%>
 
  </table>
-</marquee>
+  </div>
+
  </div>
  <!-- close left_bg-->
 

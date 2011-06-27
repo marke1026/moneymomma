@@ -301,8 +301,8 @@ ul{
 /*	background-image: url(/images/imagehome/left_bg.jpg);*/
 	background-repeat: no-repeat;
 	background-position: top;
-	width: 280px;
-	height: 50px;
+	width: 244px;
+	height: 108px;
 	float: left;
 /*	padding-top: 48px;*/
 	color: #006b38;
@@ -314,7 +314,7 @@ ul{
 	width: 280px;
 	height: 25px;
 	float: left;
-	padding-top: 150px;
+/*	padding-top: 150px;*/
 	color: #006b38;
 }
 .left_bg_below {
@@ -357,9 +357,11 @@ ul{
 .text_content {
 	font-size: 11px;
 	font-weight: bold;
+        padding-right: 14px;
 }
 .edit_destroy {
 	font-size: 10px;
+        padding-left: 6px;
 }
 .top_heading {
 	color: #FFF;
