@@ -12,7 +12,7 @@ ul{
 	width: 588px;
 /*	border-bottom: 1px solid #fff;
 	border-width: 1px 0;*/
-	background: black url(media/blockdefault.gif) center center repeat-x;
+	background: black url(/images/imagehome/blockdefault.gif) center center repeat-x;
 	-moz-background-clip: border;
 	-moz-background-origin: padding;
 	-moz-background-size: auto auto;
@@ -45,7 +45,7 @@ color: white;
 
 .solidblockmenu li a:hover, .solidblockmenu li a.current{
 color: white;
-background: transparent url(media/blockactive.gif) center center repeat-x;
+background: transparent url(/images/imagehome/blockactive.gif) center center repeat-x;
 	border: 1px solid #fff;
 	-moz-background-clip: border;
 	-moz-background-origin: padding;
@@ -60,9 +60,11 @@ background: transparent url(media/blockactive.gif) center center repeat-x;
 	/*clear: left;
 	width:612px; /*width of 2nd level sub menus*/
 	/*height:1.5em;*/ /*height of 2nd level sub menus. Set to largest's sub menu's height to avoid jittering.*/
-	margin-left:24px;
-	height: 51px;
-	position:static;
+        z-index: 9999;
+        margin-top: 39px;
+        margin-left: 14px;
+	height: 52px;
+	position: absolute;
 	*position:relative;
 	*height: auto !important;
 	

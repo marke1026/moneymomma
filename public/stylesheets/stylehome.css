@@ -18,7 +18,22 @@ ul{
 	padding:0;
 	list-style-type:none;
 }
+.space {
+	margin: 0px;
+	padding: 0px;
+	clear:both;
+}
 
+.space-1 {
+	clear: both;
+	height: 20px;
+}
+
+.space-2 {
+	height: 47px;
+	margin: 0px;
+	padding: 0px;
+}
 #header_part {
 	width: 100%;
 	height: 176px;
@@ -166,7 +181,7 @@ ul{
 	float: right;
 	height: 40px;
 	width: 611px;
-	margin-top: 31px;
+	margin-top: 32px;
 }
 .header_nav_c_corner a {
 	color: #5c3700;
@@ -203,13 +218,22 @@ ul{
 	width: 8px;
 	background-repeat: no-repeat;
 }
-.header_nav_r_corner {
+.header_logo_nav {
+	float: right;
+	margin-left:9px;
+	padding-top:35px;
+
+}
+
+
+
+/*.header_nav_r_corner {
 	float: right;
 	background-image: url(/images/imagehome/header_nav02.png);
 	background-repeat: no-repeat;
 	height: 40px;
 	width: 8px;
-}
+}*/
 .header_nav_c_corner {
 	float: left;
 	height: 40px;
@@ -242,6 +266,7 @@ ul{
 	background-image: url(/images/imagehome/doller_image.jpg);
 	background-repeat: no-repeat;
 	height: 229px;
+/*        margin-top:-14px;*/
 }
 #left_containt {
 	width: 285px;
