@@ -9,6 +9,8 @@ ul{
 	padding: 0;
 	float: left;
 	font: bold 13px Arial;
+        width:auto;
+	*width: 588px;
 /*	width: 588px;*/
 /*	border-bottom: 1px solid #fff;
 	border-width: 1px 0;*/
