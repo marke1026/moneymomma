@@ -335,8 +335,11 @@ $.fn.jScrollPane = function(settings)
 				};
 
 				var dragH = Math.max(Math.min(percentInView*(paneHeight-settings.arrowSize*2), settings.dragMaxHeight), settings.dragMinHeight);
+                                
+                               // var  dragHSANDEEP = dragH - 39.00 ;
+                               // alert ("dfsdf"+dragHSANDEEP);
 
-				$drag.css(
+                                $drag.css(
 					{'height':dragH+'px'}
 				).bind('mousedown', onStartDrag);
 

@@ -29,7 +29,7 @@ display: inline;
 
 .solidblockmenu li a{
 float: left;
-color: white;
+color: #5C3700;
 padding: 9px 11px;
 text-decoration: none;
 border-right: 1px solid white;
@@ -58,6 +58,13 @@ background: transparent url(/images/imagehome/blockactive.gif) center center rep
 
 }
 
+
+.solidblockmenu li a.selectagain{
+color: #fff;
+background: transparent url(/images/imagehome/blockactive.gif) center center repeat-x;
+border: 1px solid #fff;
+}
+
 .tabcontainer{
 	/*clear: left;
 	width:612px; /*width of 2nd level sub menus*/
@@ -80,7 +87,7 @@ background: transparent url(/images/imagehome/blockactive.gif) center center rep
 }
 .tabcontainer.ieclass #sb1 li a {
 	text-decoration: none;
-	color: #000;
+	color: #5C3700;
 	padding-right: 13px;
 	padding-left: 13px;
 }
