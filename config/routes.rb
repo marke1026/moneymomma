@@ -1,5 +1,10 @@
 Money::Application.routes.draw do
-  resources :transactions
+  resources :transactions do
+    collection do
+      get 'ask_momma'
+      get 'widget'
+    end
+  end
 
   resources :deposits
 
@@ -9,6 +14,8 @@ Money::Application.routes.draw do
       get 'home'
     end
   end
+  
+  match 'ask_momma' => 'transactions#ask_momma'
 
   resources :payees
 

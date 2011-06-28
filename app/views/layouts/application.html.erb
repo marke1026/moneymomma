@@ -104,7 +104,7 @@ jQuery.noConflict();
                          
 
                             <li><%= link_to "Money Momma  Budgeting", payments_path , :rel => "sb1" ,:style => "border-radius: 6px;-moz-border-radius: 6px 0 0  6px;-webkit-border-radius:6px 0 0 6px;	-khtml-border-radius: 6px 0 0 6px;"  , :class => @active_page.starts_with?('payments') ? 'selectagain' : '' %></li>
-                            <li><a href="#">Ask Momma</a></li>
+                            <li><%= link_to "Ask Momma", ask_momma_path, :class => @active_page.starts_with?('ask_momma') ? 'selectagain' : ''%></li>
                             <li> <%= link_to "Money Momma Coupons", transactions_path , :class => @active_page.starts_with?('transactions') ? 'selectagain' : ''%></li>
                             <li> <%= link_to "Email Settings", email_alert_users_path , :style => "border-right:none; border-radius: 6px;-moz-border-radius: 0 6px 6px 0; -webkit-border-radius:0  6px 6px 0;	-khtml-border-radius: 0 6px 6px 0;" , :class => @active_page.starts_with?('email') ? 'selectagain' : ''%></li>
 

@@ -5,4 +5,8 @@ class TransactionsController < ApplicationController
     @trans = current_user.transactions
   end
   
+  def widget
+    render :layout => false
+  end
+  
 end
