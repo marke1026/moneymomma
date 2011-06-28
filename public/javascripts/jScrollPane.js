@@ -264,11 +264,11 @@ $.fn.jScrollPane = function(settings)
 				} else if ($upArrow) {
 					var topArrowHeight = $upArrow.height();
 					settings.arrowSize = topArrowHeight;
-					trackHeight = paneHeight - topArrowHeight - $downArrow.height();
-					trackOffset += topArrowHeight;
+//					trackHeight = paneHeight - topArrowHeight - $downArrow.height();
+//					trackOffset += topArrowHeight;
 				}
-				trackHeight -= settings.topCapHeight + settings.bottomCapHeight;
-				$track.css({'height': trackHeight+'px', top:trackOffset+'px'})
+//				trackHeight -= settings.topCapHeight + settings.bottomCapHeight;
+//				$track.css({'height': trackHeight+'px', top:trackOffset+'px'})
 
 				var $pane = $(this).css({'position':'absolute', 'overflow':'visible'});
 
@@ -601,7 +601,7 @@ $.fn.jScrollPane.defaults = {
 	showArrows : false,
 	arrowSize : 0,
 	animateTo : false,
-	dragMinHeight : 1,
+	dragMinHeight : 50,
 	dragMaxHeight : 99999,
 	animateInterval : 100,
 	animateStep: 3,
