@@ -74,7 +74,7 @@ class PaymentsController < ApplicationController
     #puts "------------------------------------------#{current_user.dates_for_next_six_months.count}"
     x_axis.labels = current_user.dates_for_next_six_months.map{|d| d.strftime('%d %b')}
     x_axis.colour = '#818D9D'
-    x_axis.set_range(0, 14, 1)
+    x_axis.set_range(0, 12, 1)
 
     y_axis = YAxis.new
     y_axis.colour = '#818D9D'

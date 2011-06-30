@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   def payments_for_next_six_months
     payment_collection = []
     payments = Payment.find_all_by_payee_id(payees.map{|p| p.id})
-   dates_for_next_six_months.each do |date|
+    dates_for_next_six_months.each do |date|
       selected_payments = payments.select{ |p| p.transaction_dates.include?(date) }
       payment_collection << selected_payments.sum{ |p| p.amount.to_i}
     end
@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
   end
 
   #Added by sandeep
-  def  object_list_for_payments_for_next_six_months
+  def object_list_for_payments_for_next_six_months
     payment_collection = []
     payments = Payment.find_all_by_payee_id(payees.map{|p| p.id})
     dates_for_next_six_months.each do |date|
@@ -66,7 +66,7 @@ class User < ActiveRecord::Base
   def dates_for_next_six_months
     middle_of_month = Date.parse("15.#{Date.today.month}.#{Date.today.year}")
     dates = []
-    (1..10).each do |x|
+    (1..7).each do |x|
       dates << middle_of_month unless Date.today.day > 15 and x == 1
       end_of_month = middle_of_month.end_of_month
       dates << end_of_month
@@ -83,26 +83,22 @@ class User < ActiveRecord::Base
   
   def send_email_alerts
     if self.email_alert?
-
-    if self.email_delivery_time == "5 days before Paycheck"
+      if self.email_delivery_time == "5 days before Paycheck"
         send_email_alerts_before_paycheck
       elsif self.email_delivery_time == "5 days before and on Paycheck day"
         send_email_alerts_before_paycheck
         send_email_alerts_on_paycheck
       end
-   end
+    end
   end
   
   def send_email_alerts_before_paycheck
-
     dates_before_payments = self.payments.all.map{|p| p.transaction_dates}.flatten.map{|b| b-5}
     dates_before_deposits = self.deposits.all.map{|d| d.deposit_dates}.flatten.map{|c| c-5}
     if dates_before_payments.include?(Date.today) || dates_before_deposits.include?(Date.today)
-
       UserMailer.alert_before_paycheck(self).deliver
     else
       return false
-
     end
   end
   
@@ -117,7 +113,6 @@ class User < ActiveRecord::Base
   end
   
   def send_mobile_alerts
-  
     if self.mobile_alert? && self.mobile?
        if self.sms_delivery_time == "5 days before Paycheck"
           send_mobile_alerts_before_paycheck
@@ -129,10 +124,8 @@ class User < ActiveRecord::Base
   end
   
   def send_mobile_alerts_before_paycheck
-  
     dates_before_payments = self.payments.all.map{|p| p.transaction_dates}.flatten.map{|b| b-4}
     dates_before_deposits = self.deposits.all.map{|d| d.deposit_dates}.flatten.map{|c| c-4}
- 
     if dates_before_payments.include?(Date.today) || dates_before_deposits.include?(Date.today)
       sms = Moonshado::Sms.new(self.mobile, "You have 5 days left for payments, Please login to mymoneymomma to manage things.")
       sms.deliver_sms
@@ -142,16 +135,24 @@ class User < ActiveRecord::Base
   end
   
   def send_mobile_alerts_on_paycheck
-  
     dates_of_payments = self.payments.all.map{|p| p.transaction_dates}.flatten
     dates_of_deposits = self.deposits.all.map{|d| d.deposit_dates}.flatten
-   
     if dates_of_payments.include?(Date.today) || dates_of_deposits.include?(Date.today)
       sms = Moonshado::Sms.new(self.mobile, "Today is your Payment day, Please login to mymoneymomma to manage things.")
       sms.deliver_sms
     else
       return false
     end
+  end
+  
+  def set_alerts
+    alert_date = self.payments.all.map{|p| p.transaction_dates.map{|q| q if q==Date.today+5}}.flatten.uniq.compact!
+    if alert_date.present?
+      deposits = self.deposits_for_next_six_months
+      payments = self.payments_for_next_six_months
+      amount = deposits[0]-payments[0]
+    end
+    return amount, alert_date
   end
 
 end

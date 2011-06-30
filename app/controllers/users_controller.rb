@@ -39,4 +39,5 @@ class UsersController < ApplicationController
   def email_alert
     @user = @current_user
   end
+  
 end

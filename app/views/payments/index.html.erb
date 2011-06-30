@@ -208,55 +208,31 @@
               
            
             <div id="textboxid_1">
-            <div class="contone">
-                <div class="first_cont"><img src="images/imagehome/bullet0.png" />
-                  <blockquote>In the past 30 days, you spent <span class="alert_highlight">$291.39</span> on <span class="alert_highlight">Gym.</span> Usually you spend <span class="alert_highlight">$45.</span></blockquote> </div>
-                <div class="first_right">June 06 <input  value="image"  type="image"  src="images/imagehome/timebullet.png" onclick="clickToHide('1');" style="margin: 0 10px 0 10px; padding-top: 0px;" /></div>
+              <div class="contone">
+                  <div class="first_cont"><img src="images/imagehome/bullet0.png" />
+                    <% if current_user.set_alerts[0].present? %>
+                      <% if current_user.set_alerts[0] > 0%>
+                        <blockquote>
+                          <a href="http://www.marqeta.com", target ='_blank'><img src="images/imagehome/Free.png" border="0"/></a>
+                          Money momma recommends that you bost your spending power by opening up a Marqeta card at
+                          <%=link_to "www.marqeta.com", "http://www.marqeta.com", :target => '_blank'%>
+                        </blockquote>
+                      <%elsif current_user.set_alerts[0] < 0%>
+                        <blockquote>You don't have enough cash to cover expenses this next Paycheck. Money Momma reccommends that 
+                          you use Bill Float at <%=link_to "www.billfloat.com", "http://www.billfloat.com",
+                            :target => '_blank'%></blockquote>
+                      <%end%>
+                    <%else%>
+                      <blockquote>No Alerts</blockquote>
+                    <%end%>
+                  </div>
+                  <div class="first_right"><%=current_user.set_alerts[1] if current_user.set_alerts[1].present?%> 
+                    <input  value="image"  type="image"  src="images/imagehome/timebullet.png" onclick="clickToHide('1');"
+                     style="margin: 0 10px 0 10px; padding-top: 0px;" />
+                  </div>
+              </div>
             </div>
-            </div>
-
-   
-               <div id="textboxid_2">
-                 <div class="contone">
-                <div class="first_cont"><img src="images/imagehome/bullet0.png" /><blockquote>Your <span class="alert_highlight">$4.557.80</span> deposit <span class="alert_highlight">(Direct Deposit Financial)</span> to your Suncost Schools FCU-
-					REGULER CHECKING account is now available.</blockquote> </div>
-                <div class="first_right">June 06 <input  value="image"  type="image"  src="images/imagehome/timebullet.png" onclick="clickToHide('2');" style="margin: 0 10px 0 10px; padding-top: 0px;" /></div>
-              </div>
-              </div>
-
-
-              
-             <div id="textboxid_3">
-               <div class="contone">
-                <div class="first_cont"><img src="images/imagehome/bullet0.png" /><blockquote>last month, you spent <span class="alert_highlight">$949.17</span> on Groceries. This exceeds your budget of <span class="alert_highlight">$800</span> by <span class="alert_highlight">$149.</span></blockquote> </div>
-                <div class="first_right">June 06 <input  value="image"  type="image"  src="images/imagehome/timebullet.png" onclick="clickToHide('3');" style="margin: 0 10px 0 10px; padding-top: 0px;" /></div>
-             </div>
-             </div>
-
-
-              
-              <div id="textboxid_4">
-                <div class="contone">
-                <div class="first_cont"><img src="images/imagehome/bullet0.png" /><blockquote>Last month, you spent <span class="alert_highlight">$398.43</span> on <span class="alert_highlight">gas & fuel.</span> This exceeds your budget of <span class="alert_highlight">$200</span> by <span class="alert_highlight">$198</span></blockquote> </div>
-                <div class="first_right">June 06 <input  value="image"  type="image"  src="images/imagehome/timebullet.png" onclick="clickToHide('4');" style="margin: 0 10px 0 10px; padding-top: 0px;" /></div>
-                </div>
-              </div>
-
-
-              
-               <div id="textboxid_5">
-                 <div class="contone">
-                <div class="first_cont"><img src="images/imagehome/bullet0.png" /><blockquote>Last month, you spent <span class="alert_highlight">$398.43</span> on <span class="alert_highlight">gas & fuel.</span> This exceeds your budget of <span class="alert_highlight">$200</span> by <span class="alert_highlight">$198</span></blockquote> </div>
-                <div class="first_right">June 06 <input  value="image"  type="image"  src="images/imagehome/timebullet.png" onclick="clickToHide('5');" style="margin: 0 10px 0 10px; padding-top: 0px;" /></div>
-               </div >
-               </div>
-
-              <div class="contone contain_border">
-                <div class="first_cont"><a href="#"><img src="images/imagehome/Free.png" border="0"/></a>
-                  <blockquote>Free You 've incurred a finance charge on your <span class="alert_highlight">Barclays bank Delaware
-		    credit - xxxx-xxxx-xxxx--9772 </span>of <span class="alert_highlight">$1.13.</span><br />we found an account with a 0.00% APR for 12 months, saving you $1,581. Learn more</blockquote> </div>
-                <div class="first_right">June 06 <img src="images/imagehome/timebullet.png" /></div>
-              </div>
+            
             </div>
           </div>
           <!--second_right_part_One_containt-->
