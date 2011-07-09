@@ -28,9 +28,6 @@
           %td{:align => "right", :height => "40"} Country
           %td{:id=>"country"}= localized_country_select(:user, :country, [], :include_blank => 'Please choose...')
         %tr
-          %td{:align => "right", :height => "40"} State
-          %td= f.text_field :state
-        %tr
           %td{:align => "right", :height => "40"} Zipcode
           %td= f.text_field :zipcode
         %tr
@@ -51,12 +48,12 @@
           %td{:height => "30"}= f.submit "Create User"
   #why
     .why_text
-      .why_love Why you will love moneymomma
+      .why_love Why you will love MoneyMomma
       .why_love_ul
         %ul
-          %li See all your accounts in one place
-          %li Set a budget pay down your debt
-          %li Find the best way to grow your money
+          %li See all your Deposits and Payments easily
+          %li Ask Momma what to do?
+          %li Find the best printable and online coupons for huge savings!
           %li
             Stay
             %u safe and secure

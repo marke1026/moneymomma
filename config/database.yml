@@ -6,13 +6,13 @@
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 development:
-  adapter: mysql
+  adapter: sqlite3
   encoding: utf8
   reconnect: false
-  database: money_development
+  database: db/development.sqlite3
   pool: 5
   username: root
-  password: admin
+  password: 
 
 
 # Warning: The database defined as "test" will be erased and
