@@ -27,7 +27,7 @@
 
   <tr>
   <td colspan="2" width="630" height="39" background="<%=  ADDRESS_FOR_IMAGES %>/contant_02.jpg"
-  style="background-repeat:no-repeat;" ><span style="padding-left:120px; font-size:16px;">Your  Paycheck  amount  is $<%= "#{@depositamount} " %></span></td>
+  style="background-repeat:no-repeat;" ><span style="padding-left:120px; font-size:16px;">Today is your Payment day</span></td>
    </tr>
 
   <tr>
@@ -39,13 +39,11 @@
     <td></td>
   </tr>
 
-  <% @paymentsobject[0].each do |payment|  %>
-   <tr>
-    <td align="left"> <%=  "#{ Payee.find(payment.payee_id).name }" %> </td>
-    <td align="center"> <%= "$#{payment.amount}" %> </td>
+  <tr>
+    <td align="left">Service & Parts</td>
+    <td align="center">$27.40</td>
     <td align="center"></td>
   </tr>
-  <% end %>
 
 </table>
   </td>
@@ -57,7 +55,7 @@
 
    <tr>
   <td colspan="2" width="630" height="82" background="<%=  ADDRESS_FOR_IMAGES %>/contant_05.jpg">
-  <p style="padding-left:110px; padding-right:110px;"><%= "You have to pay $#{@payments1[0]} after 5 days , then your paycheck amount will be $#{@diffrence}"  %> </p></td>
+  <p style="padding-left:110px; padding-right:110px;">Today is your Payment day, Please login mymoneymomma to manage things.</p></td>
   </tr>
 
  <tr>
@@ -83,7 +81,7 @@
     <td width="372" height="146" background="<%=  ADDRESS_FOR_IMAGES %>/footer_01.jpg" style="background-repeat:no-repeat;">
 
     <table border="0" cellpadding="0" cellspacing="0" width="220px;" align="right" style="margin-bottom:40px;">
-    <tr valign="top"><td rowspan="2" width="70"><img src="<%=  ADDRESS_FOR_IMAGES %>/mob.png"  style="padding-left:8px;" /></td>
+    <tr valign="top"><td rowspan="2" width="70"><img src="<%=  ADDRESS_FOR_IMAGES %>/mob.png" / style="padding-left:8px;"></td>
     </tr>
 
     <tr valign="top"><td width="170" style="line-height:22px;"><span style="text-decoration:underline;">Get Money Momma for</span><br />
@@ -100,7 +98,7 @@
     <tr>
     <td align="center" width="100px;" style="padding-left:10px;">Folllow us on:</td>
     <td>
-    <a href="http://www.mymoneymomma.com" target="_blank"><img src="<%= ADDRESS_FOR_IMAGES %>/fb.jpg" alt="facebook" border="0"/></a>
+    <a href="http://www.mymoneymomma.com" target="_blank"><img src="<%=  ADDRESS_FOR_IMAGES %>/fb.jpg" alt="facebook" border="0"/></a>
     <a href="http://www.mymoneymomma.com" target="_blank"><img src="<%=  ADDRESS_FOR_IMAGES %>/twt.png" alt="twitter" border="0" style="padding-left:8px;" /></a>
     <a href="http://www.mymoneymomma.com" target="_blank"><img src="<%=  ADDRESS_FOR_IMAGES %>/rss.png" alt="rss" border="0" style="padding-left:8px;" /></a></td>
     </tr></table>
