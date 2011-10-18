@@ -1,8 +1,8 @@
 class TransactionsController < ApplicationController
-  before_filter :require_user
+  before_filter :require_user, :except => [:index, :ask_momma]
   
   def index
-    @trans = current_user.transactions
+    @trans = current_user.transactions if current_user
   end
   
   def widget

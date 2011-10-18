@@ -17,8 +17,7 @@
     <%= javascript_include_tag "jquery-1.4.2.min" %>
     <%= javascript_include_tag "jquery.mousewheel" %>
     <%= javascript_include_tag "jScrollPane" %>
-
-
+    <%= include_tiny_mce_if_needed %>
 
    <%= javascript_include_tag "ddtabmenu" %>
     <%#= javascript_include_tag "jquery-1.5.2.min" %>
@@ -68,16 +67,16 @@ jQuery.noConflict();
 
 
             <div id="logo_base">
-            <div class="logo_part"><img src="/images/imagehome/logo_.png"  /></div>
+            <div class="logo_part"><%=link_to image_tag("/images/imagehome/logo_.png"), "/"%></div>
              <div id="login">
              <ul>
                <%- if current_user %>
-                <li style="color:#fff;"> <%= "Welcome,#{current_user.first_name}" %> <span class="line-spacing">|</span> </li>
+                <li style="color:#fff;"> <%= "Welcome, #{current_user.first_name}" %> <span class="line-spacing">|</span> </li>
                 <li>  <%= link_to "View Profile", user_path('me') %><span class="line-spacing">|</span></li>
                 <li>   <%= link_to "Sign Out", "/logout" %> </li>
                <% else %>
-                  <%= link_to "Login", new_user_session_path %>
-                  <%= link_to "Sign Up", new_user_path %>
+                  <li style="color:#fff;"><%= link_to "Login", new_user_session_path %> <span class="line-spacing">|</span></li>
+                  <li><%= link_to "Sign Up", new_user_path %></li>
                <%- end%>
              
              
@@ -106,6 +105,7 @@ jQuery.noConflict();
                             <li><%= link_to "Money Momma  Budgeting", payments_path , :rel => "sb1" ,:style => "border-radius: 6px;-moz-border-radius: 6px 0 0  6px;-webkit-border-radius:6px 0 0 6px;	-khtml-border-radius: 6px 0 0 6px;"  , :class => @active_page.starts_with?('payments') ? 'selectagain' : '' %></li>
                             <li><%= link_to "Ask Momma", ask_momma_path, :class => @active_page.starts_with?('ask_momma') ? 'selectagain' : ''%></li>
                             <li> <%= link_to "Money Momma Coupons", transactions_path , :class => @active_page.starts_with?('transactions') ? 'selectagain' : ''%></li>
+                            <li> <%= link_to "Blog", articles_path, :class => @active_page.starts_with?('articles') ? 'selectagain' : ''%></li>
                             <li> <%= link_to "Email Settings", email_alert_users_path , :style => "border-right:none; border-radius: 6px;-moz-border-radius: 0 6px 6px 0; -webkit-border-radius:0  6px 6px 0;	-khtml-border-radius: 0 6px 6px 0;" , :class => @active_page.starts_with?('email') ? 'selectagain' : ''%></li>
 
                         </ul>
@@ -141,6 +141,9 @@ jQuery.noConflict();
     <!--containor Part Start-->
 <div class="main_containor_first">
    <div class="main_containor">
+     <%flash.each do |name, msg|%>
+       <%= content_tag :div, msg, :id => "flash_#{name}"%>
+      <%end%>
        <%= yield %>
    </div>
  </div>

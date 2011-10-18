@@ -18,6 +18,11 @@ a img {
 
 a {
   color: #1f9455;
+	text-decoration:none;
+}
+
+a:hover{
+	text-decoration: underline;
 }
 
 h1 {
@@ -111,4 +116,14 @@ color: black;
 
 table th{
 	text-align:left;
+}
+
+#posted_on{
+	color:#aaa;
+	margin-top:-15px;
+	font-size:11px;
+}
+
+#comment a{
+	color:#999999;
 }

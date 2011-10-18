@@ -12,6 +12,7 @@ p {
 	font-size: 12px;
 	color: #006b38;
 	font-weight:bold;
+	text-align:justify;
 }
 ul{
 	margin:0;
@@ -62,6 +63,7 @@ ul{
 .main_containor {
 	background-color: #FFF;
 	width: 974px;
+	padding: 10px;
 
 	margin:0 auto 0 auto;
 
@@ -221,7 +223,7 @@ ul{
 .header_logo_nav {
 	float: right;
 	margin-left:9px;
-	padding-top:35px;
+	margin-top:-33px;
 
 }
 

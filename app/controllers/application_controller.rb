@@ -22,6 +22,21 @@ class ApplicationController < ActionController::Base
       return false
     end
   end
+  
+  def logged_in?
+    current_user
+  end
+  
+  def admin_login_required
+    if logged_in? && current_user.role == "admin"
+      return true
+    else
+      store_location
+      flash[:notice] = "You must be logged in as admin to access this page"
+      redirect_to new_user_session_url
+      return false
+    end
+  end
 
   def require_no_user
     if current_user

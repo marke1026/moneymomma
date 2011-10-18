@@ -10,7 +10,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110429103025) do
+ActiveRecord::Schema.define(:version => 20110831074554) do
+
+  create_table "articles", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "user_id"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "article_id"
+    t.string   "name"
+    t.string   "email"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "deposits", :force => true do |t|
     t.integer  "user_id"
@@ -57,22 +78,22 @@ ActiveRecord::Schema.define(:version => 20110429103025) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "first_name",                             :null => false
+    t.string   "first_name",                                           :null => false
     t.string   "last_name"
-    t.string   "email",                                  :null => false
+    t.string   "email",                                                :null => false
     t.string   "state"
     t.string   "country"
     t.string   "zipcode"
     t.date     "birth_date"
     t.boolean  "gender"
-    t.boolean  "active",              :default => false, :null => false
-    t.string   "crypted_password",                       :null => false
-    t.string   "password_salt",                          :null => false
-    t.string   "persistence_token",                      :null => false
-    t.string   "single_access_token",                    :null => false
-    t.string   "perishable_token",    :default => "",    :null => false
-    t.integer  "login_count",         :default => 0,     :null => false
-    t.integer  "failed_login_count",  :default => 0,     :null => false
+    t.boolean  "active",                            :default => false, :null => false
+    t.string   "crypted_password",                                     :null => false
+    t.string   "password_salt",                                        :null => false
+    t.string   "persistence_token",                                    :null => false
+    t.string   "single_access_token",                                  :null => false
+    t.string   "perishable_token",                  :default => "",    :null => false
+    t.integer  "login_count",                       :default => 0,     :null => false
+    t.integer  "failed_login_count",                :default => 0,     :null => false
     t.datetime "last_request_at"
     t.datetime "current_login_at"
     t.datetime "last_login_at"
@@ -86,6 +107,7 @@ ActiveRecord::Schema.define(:version => 20110429103025) do
     t.string   "sms_delivery_time"
     t.boolean  "email_alert"
     t.boolean  "mobile_alert"
+    t.string   "role",                :limit => 32
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

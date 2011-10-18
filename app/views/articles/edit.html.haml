@@ -1,0 +1,18 @@
+- @active_page = 'articles'
+%h1 Edit Article
+= form_for @article, :html => { :multipart => true } do |f|
+  = f.error_messages
+  %table{:border => "0", :cellpadding => "0", :cellspacing => "10", :width => "80%"}
+    %tr
+      %td= "Title"
+      %td= f.text_field :title
+    %tr
+      %td= "Description"
+      %td= f.text_area :description, {:rows=>"15", :cols=>"60", :class => "mceEditor"}
+    %tr
+      %td= "Image"
+      %td= f.file_field :avatar
+    %tr
+      %td
+        = f.submit "Update Article"
+        = button_to_function "Cancel", "history.back()"

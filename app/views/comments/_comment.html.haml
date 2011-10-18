@@ -1,0 +1,16 @@
+- div_for comment do
+  %div{:style=>"border-bottom:1px #ccc solid;margin-bottom:5px;"}
+    %p
+      %h4
+        %b Name:
+        = comment.name
+      %p{:id=>"posted_on"}
+        = "Commented on #{comment.created_at.strftime("%b %d, %Y at %l:%m %p")}"
+      %p
+        %b Email:
+        = comment.email
+      %p
+        %b Description:
+        = comment.description
+      - if current_user && current_user.role == "admin"
+        = link_to 'Delete', article_comment_path(@article, comment), :confirm => 'Are you sure?', :method => :delete

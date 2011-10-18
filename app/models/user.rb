@@ -3,9 +3,10 @@ class User < ActiveRecord::Base
   
   validates_presence_of :first_name
   
-  has_many :payees
+  has_many :payees, :dependent => :destroy
   has_many :payments, :through => :payees
-  has_many :deposits
+  has_many :deposits, :dependent => :destroy
+  has_many :articles, :dependent => :destroy
   
   def activate!
     self.active = true

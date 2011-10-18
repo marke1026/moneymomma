@@ -1,0 +1,41 @@
+- @active_page = 'articles'
+%div{:style=>"width:600px;", :align=>"left"}
+  %div{:style => "margin-top:10px;"}
+    %h1 
+      = @article.title
+    %p{:id=>"posted_on"}
+      = "Posted on #{@article.created_at.strftime("%b %d, %Y at %l:%m %p")}"
+    - if @article.avatar?
+      %div
+        = image_tag @article.avatar.url(:small)
+    = @article.description.html_safe
+    
+    %script{:src => "http://connect.facebook.net/en_US/all.js#xfbml=1"}
+    %fb:like{:font => "", :href => "", :layout => "button_count", :show_faces => "false", :width => "450"}
+    
+    %a.twitter-share-button.left{"data-count" => "horizontal", "data-via" => "fuonrails", :href => "http://twitter.com/share"} Tweet 
+    %script{:src => "http://platform.twitter.com/widgets.js", :type => "text/javascript"}
+    
+    %h2
+      = "#{@article.comments.count} Comments"
+    = render :partial => @article.comments
+    
+    %div{:style => "background-color:#ffffee;padding:10px;"}
+      %h2 Leave a Comment
+      = form_for([@article, @article.comments.build]) do |f|
+        = f.error_messages
+        .field
+          = f.label :name
+          %br
+          = f.text_field :name
+        .field
+          = f.label :email
+          %br
+          = f.text_field :email
+        .field
+          = f.label :description
+          %br
+          = f.text_area :description, :size => "42x6"
+        %p= f.submit
+    
+  = link_to "<< back", articles_path
