@@ -34,33 +34,32 @@ ActiveRecord::Schema.define(:version => 20110831074554) do
   end
 
   create_table "deposits", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "paycheck_amount"
-    t.string   "paycheck_frequency"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "user_id"
+    t.string    "paycheck_amount"
+    t.string    "paycheck_frequency"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "payees", :force => true do |t|
-    t.string   "name",           :null => false
-    t.integer  "user_id",        :null => false
-    t.string   "address_1"
-    t.string   "address_2"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zipcode"
-    t.string   "phone"
-    t.string   "name_on_bill"
-    t.string   "account_number"
-    t.string   "nick_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "name",           :null => false
+    t.integer   "user_id",        :null => false
+    t.string    "address_1"
+    t.string    "address_2"
+    t.string    "city"
+    t.string    "state"
+    t.string    "zipcode"
+    t.string    "phone"
+    t.string    "name_on_bill"
+    t.string    "account_number"
+    t.string    "nick_name"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "payments", :force => true do |t|
     t.integer  "payee_id",           :null => false
     t.string   "delivery_time"
-    t.string   "suffix"
     t.string   "amount"
     t.string   "number_of_payments"
     t.datetime "created_at"
@@ -68,13 +67,13 @@ ActiveRecord::Schema.define(:version => 20110831074554) do
   end
 
   create_table "transactions", :force => true do |t|
-    t.integer  "amount"
-    t.integer  "payable_id"
-    t.string   "payable_type"
-    t.string   "reference_number"
-    t.boolean  "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "amount"
+    t.integer   "payable_id"
+    t.string    "payable_type"
+    t.string    "reference_number"
+    t.boolean   "status"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "users", :force => true do |t|
