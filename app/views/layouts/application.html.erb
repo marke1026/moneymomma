@@ -140,12 +140,12 @@ jQuery.noConflict();
 
     <!--containor Part Start-->
 <div class="main_containor_first">
-   <div class="main_containor">
-     <%flash.each do |name, msg|%>
-       <%= content_tag :div, msg, :id => "flash_#{name}"%>
-      <%end%>
-       <%= yield %>
-   </div>
+  <div class="main_containor">
+    <%flash.each do |name, msg|%>
+      <%= content_tag :div, msg, :id => "flash_#{name}"%>
+    <%end%>
+    <%= yield %>
+  </div>
  </div>
    <!--containor Part End-->
 
