@@ -22,11 +22,3 @@
           = link_to "Edit", edit_article_path(article)
           = "|"
           = link_to_remote "Delete", :url=>article_path(article), :method=>"delete", :confirm=>"Are you sure ?"
-%div{:style=>"width:200px;", :align=>"right"}
-  :javascript
-    google_ad_client = "ca-pub-4583138266696011";
-    google_ad_slot = "7371450496";
-    google_ad_width = 728;
-    google_ad_height = 90;
-  :javascript
-    src="http://pagead2.googlesyndication.com/pagead/show_ads.js"
