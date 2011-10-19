@@ -1,39 +1,32 @@
 - @active_page = 'articles'
-%div
-  %div{:style=>"width:600px;float:left;"}
-    %div
-      = link_to "Create Article", new_article_path if current_user && current_user.role == "admin"
+%div{:style=>"width:600px;", :align=>"left"}
+  %div
+    = link_to "Create Article", new_article_path if current_user && current_user.role == "admin"
 
-    %div{:style => "margin-top:10px;"}
-      - @articles.each do |article|
-        %div{:style=>"border-bottom:1px #aaaaaa solid;padding-bottom:10px;", :id=>"article_#{article.id}"}
-          %h1
-            = link_to article.title, article_path(article)
-          %p{:id=>"posted_on"}
-            = "Posted on #{article.created_at.strftime("%b %d, %Y at %l:%m %p")}"
-          - if article.avatar?
-            %div
-              = image_tag article.avatar.url(:small)
-          = truncate(article.description, :length => 500).html_safe
-          %p
-            = link_to "Read More...", article_path(article)
-          %p{:id => "comment"}
-            = link_to image_tag("/images/comment-icon.jpg") + " " + "#{article.comments.count} Comments", article_path(article)
-          - if current_user && current_user.role == "admin"
-            = link_to "Edit", edit_article_path(article)
-            = "|"
-            = link_to_remote "Delete", :url=>article_path(article), :method=>"delete", :confirm=>"Are you sure ?"
-
-  %div{:style=>"width:200px;float:right;"}
-    <script type="text/javascript">
+  %div{:style => "margin-top:10px;"}
+    - @articles.each do |article|
+      %div{:style=>"border-bottom:1px #aaaaaa solid;padding-bottom:10px;", :id=>"article_#{article.id}"}
+        %h1
+          = link_to article.title, article_path(article)
+        %p{:id=>"posted_on"}
+          = "Posted on #{article.created_at.strftime("%b %d, %Y at %l:%m %p")}"
+        - if article.avatar?
+          %div
+            = image_tag article.avatar.url(:small)
+        = truncate(article.description, :length => 500).html_safe
+        %p
+          = link_to "Read More...", article_path(article)
+        %p{:id => "comment"}
+          = link_to image_tag("/images/comment-icon.jpg") + " " + "#{article.comments.count} Comments", article_path(article)
+        - if current_user && current_user.role == "admin"
+          = link_to "Edit", edit_article_path(article)
+          = "|"
+          = link_to_remote "Delete", :url=>article_path(article), :method=>"delete", :confirm=>"Are you sure ?"
+%div{:style=>"width:200px;", :align=>"right"}
+  :javascript
     google_ad_client = "ca-pub-4583138266696011";
-    /* first add */
-    google_ad_slot = "8679410634";
-    google_ad_width = 120;
-    google_ad_height = 600;
-    </script>
-    <script type="text/javascript"
-    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-    </script>
-
-%br{:style=>"clear:both"}
+    google_ad_slot = "7371450496";
+    google_ad_width = 728;
+    google_ad_height = 90;
+  :javascript
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js"
