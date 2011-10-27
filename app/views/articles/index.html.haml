@@ -1,5 +1,5 @@
 - @active_page = 'articles'
-%div{:style=>"width:600px;", :align=>"left"}
+%div{:style=>"width:600px;float:left;"}
   %div
     = link_to "Create Article", new_article_path if current_user && current_user.role == "admin"
 
@@ -13,7 +13,7 @@
         - if article.avatar?
           %div
             = image_tag article.avatar.url(:small)
-        = truncate(article.description, :length => 500).html_safe
+        = truncate(article.description).html_safe
         %p
           = link_to "Read More...", article_path(article)
         %p{:id => "comment"}
@@ -22,3 +22,16 @@
           = link_to "Edit", edit_article_path(article)
           = "|"
           = link_to_remote "Delete", :url=>article_path(article), :method=>"delete", :confirm=>"Are you sure ?"
+%div{:style=>"width:200px;float:right;"}
+  <script type="text/javascript"><!--
+  google_ad_client = "ca-pub-4583138266696011";
+  /* first add */
+  google_ad_slot = "8679410634";
+  google_ad_width = 120;
+  google_ad_height = 600;
+  //-->
+  </script>
+  <script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+  </script>
+%br{:style=>"clear:both"}
