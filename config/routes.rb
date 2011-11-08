@@ -8,6 +8,7 @@ Money::Application.routes.draw do
     collection do
       get 'ask_momma'
       get 'widget'
+      get 'company'
     end
   end
 
@@ -20,6 +21,7 @@ Money::Application.routes.draw do
     end
   end
   
+  match 'company' => 'transactions#company'
   match 'ask_momma' => 'transactions#ask_momma'
 
   resources :payees
