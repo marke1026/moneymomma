@@ -72,7 +72,7 @@ class PaymentsController < ApplicationController
     x_axis = XAxis.new
     #x_axis.labels = ['1','1','1','1','1','1']
     #puts "------------------------------------------#{current_user.dates_for_next_six_months.count}"
-    x_axis.labels = current_user.dates_for_next_six_months.map{|d| d.strftime('%d %b')}
+    x_axis.labels = current_user.dates_for_next_six_months.map{|d| d.strftime('%m/%d')}
     x_axis.colour = '#818D9D'
     x_axis.set_range(0, 12, 1)
 
