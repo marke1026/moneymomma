@@ -257,7 +257,7 @@ ul{
 /*left_part_navigation*/
 
 #left_part {
-	width: 307px;
+	width: 300px;
 	margin-top: 0px;
 	padding-top: 0px;
 	float: left;
@@ -520,7 +520,7 @@ ul{
 }*/
 #right_part {
 	float: left;
-	width: 660px;
+	width: 650px;
 	height: auto;
 	margin-top: 0px;
 	padding-top: 0px;
