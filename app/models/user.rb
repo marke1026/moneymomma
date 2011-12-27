@@ -147,7 +147,8 @@ class User < ActiveRecord::Base
   end
   
   def set_alerts
-    alert_date = self.payments.all.map{|p| p.transaction_dates.map{|q| q if q==Date.today+5}}.flatten.uniq.compact!
+    #alert_date = self.payments.all.map{|p| p.transaction_dates.map{|q| q if q == Date.today+ 5}}.flatten.uniq.compact!
+    alert_date = Date.today
     if alert_date.present?
       deposits = self.deposits_for_next_six_months
       payments = self.payments_for_next_six_months
