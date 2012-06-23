@@ -24,6 +24,7 @@ Money::Application.routes.draw do
   match 'contact' => 'transactions#contact'
   match 'company' => 'transactions#company'
   match 'ask_momma' => 'transactions#ask_momma'
+  match 'foursquarepush' => 'foursquarepush#notify'
 
   resources :payees
 
