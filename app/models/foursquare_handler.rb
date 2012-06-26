@@ -3,7 +3,6 @@ class FoursquareHandler
   class << self
 
     def save_from_push(params)
-      Rails.logger.error params.to_s
       fp = FoursquarePush.new(
         :push_id => params['id'],
         :push_created_at => params['createdAt'],
@@ -21,12 +20,6 @@ class FoursquareHandler
         :relationship => user['relationship']
       )
       venue = params['venue']
-      Rails.logger.error venue.to_s
-      Rails.logger.error venue.class.upcase
-      fp.build_foursquare_venue(
-        :venue_id => venue['id'],
-        :venue_name => venue['name']
-      )
       fp.save
     end
 

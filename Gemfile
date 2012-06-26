@@ -14,6 +14,6 @@ gem 'prototype_legacy_helper', '0.0.0', :git => 'git://github.com/rails/prototyp
 gem 'moonshado-sms'
 gem "paperclip", "~> 2.3"
 gem "tiny_mce", "~> 0.1.4"
-
 # Deploy with Capistrano
 #gem 'capistrano'
+

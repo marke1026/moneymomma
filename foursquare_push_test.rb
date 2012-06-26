@@ -14,56 +14,59 @@ conn.post do |req|
   req.headers['Content-Type'] = 'application/json'
   req.body = <<-eos
     {
-        "id": "4e6fe1404b90c00032eeac34",
-        "createdAt": 1315955008,
-        "type": "checkin",
-        "timeZone": "America/New_York",
-        "user": {
-            "id": "1",
-            "firstName": "Jimmy",
-            "lastName": "Foursquare",
-            "photo": "https://foursquare.com/img/blank_boy.png",
-            "gender": "male",
-            "homeCity": "New York, NY",
-            "relationship": "self"
-        },
-        "venue": {
-            "id": "4ab7e57cf964a5205f7b20e3",
-            "name": "foursquare HQ",
-            "contact": {
-                "twitter": "foursquare"
-            },
-            "location": {
-                "address": "East Village",
-                "lat": 40.72809214560253,
-                "lng": -73.99112284183502,
-                "city": "New York",
-                "state": "NY",
-                "postalCode": "10003",
-                "country": "USA"
-            },
-            "categories": [
-                {
-                    "id": "4bf58dd8d48988d125941735",
-                    "name": "Tech Startup",
-                    "pluralName": "Tech Startups",
-                    "shortName": "Tech Startup",
-                    "icon": "https://foursquare.com/img/categories/building/default.png",
-                    "parents": [
-                        "Professional & Other Places",
-                        "Offices"
-                    ],
-                    "primary": true
-                }
-            ],
-            "verified": true,
-            "stats": {
-                "checkinsCount": 7313,
-                "usersCount": 565,
-                "tipCount": 128
-            },
-            "url": "http://foursquare.com"
-        }
+      "id":"4fe963a64fc664298edf7eb4",
+      "createdAt":1340695462,
+      "type":"checkin",
+      "shout":"I'm in your consumers, testing your push API!",
+      "timeZone":"UTC",
+      "timeZoneOffset":0,
+      "user":{
+        "id":"1",
+        "firstName":"Jimmy",
+        "lastName":"Foursquare",
+        "relationship":"self",
+        "photo":"https:\/\/is0.4sqi.net\/userpix_thumbs\/S54EHRPJAHQK0VHP.jpg",
+        "tips":{"count":0},
+        "lists":
+          {"groups":
+            [
+              { "type":"created",
+                "count":1,
+                "items":[]}]
+           },
+        "gender":"male",
+        "homeCity":"New York, NY",
+        "bio":"",
+        "contact":{"email":"accounts+foursquare@foursquare.com"}
+      },
+      "venue":{
+        "id":"4ef0e7cf7beb5932d5bdeb4e",
+        "name":"foursquare HQ",
+        "contact":{"twitter":"foursquare"},
+        "location":{"address":"568 Broadway (10th Fl)",
+        "crossStreet":"at Prince St.",
+        "lat":40.72438048356713,
+        "lng":-73.9974045753479,
+        "postalCode":"10012",
+        "city":"New York",
+        "state":"NY",
+        "country":"United States",
+        "cc":"US"
+      },
+      "categories":
+        [
+         {"id":"4bf58dd8d48988d125941735",
+          "name":"Tech Startup",
+          "pluralName":"Tech Startups",
+          "shortName":"Tech Startup",
+          "icon":"https:\/\/foursquare.com\/img\/categories\/shops\/technology.png",
+          "parents":["Professional & Other Places","Offices"],
+          "primary":true}
+        ],
+      "verified":true,
+      "stats":{"checkinsCount":12029,"usersCount":2779,"tipCount":97},
+      "url":"https:\/\/foursquare.com",
+      "likes":{"count":0,"groups":[]},"beenHere":{"count":0}}
     }
   eos
 
