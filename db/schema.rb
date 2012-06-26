@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110831074554) do
+ActiveRecord::Schema.define(:version => 20120626065044) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -39,6 +39,36 @@ ActiveRecord::Schema.define(:version => 20110831074554) do
     t.string   "paycheck_frequency"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "foursquare_pushes", :force => true do |t|
+    t.string   "push_id"
+    t.string   "push_created_at"
+    t.string   "push_type"
+    t.string   "push_time_zone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "foursquare_users", :force => true do |t|
+    t.string   "foursquare_user_id"
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "photo"
+    t.string   "gender"
+    t.string   "home_city"
+    t.string   "relationship"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "foursquare_push_id"
+  end
+
+  create_table "foursquare_venues", :force => true do |t|
+    t.string   "venue_id"
+    t.string   "venue_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "foursquare_push_id"
   end
 
   create_table "payees", :force => true do |t|

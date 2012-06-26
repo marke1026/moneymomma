@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  push_id: MyString
+  push_created_at: MyString
+  push_type: MyString
+  push_time_zone: MyString
+
+two:
+  push_id: MyString
+  push_created_at: MyString
+  push_type: MyString
+  push_time_zone: MyString

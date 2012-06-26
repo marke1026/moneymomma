@@ -1,7 +1,9 @@
 class FoursquarepushController < ApplicationController
-  
-  
+
   def notify
-    render :layout => false
+    FoursquareHandler.save_from_push(params)
+    render :nothing => true
   end
+
 end
+
