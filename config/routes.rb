@@ -2,7 +2,7 @@ Money::Application.routes.draw do
 
   resources :articles do
     resources :comments
-  end  
+  end
 
   resources :transactions do
     collection do
@@ -20,11 +20,11 @@ Money::Application.routes.draw do
       get 'home'
     end
   end
-  
+
   match 'contact' => 'transactions#contact'
   match 'company' => 'transactions#company'
   match 'ask_momma' => 'transactions#ask_momma'
-  match 'foursquarepush' => 'foursquarepush#notify'
+  match 'foursquarepush' => 'foursquarepush#notify', :via => :post
 
   resources :payees
 
@@ -38,15 +38,15 @@ Money::Application.routes.draw do
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
-  
+
   resources :user_sessions
   resources :password_resets
-  
+
   match 'login' => 'user_sessions#new'
   match 'logout' => 'user_sessions#destroy'
-  
+
   match 'signup' => 'user#new'
-  
+
   match '/activate/:activation_code' => 'activations#create', :as => :activate
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
@@ -95,3 +95,4 @@ Money::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+
