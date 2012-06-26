@@ -3,7 +3,7 @@ class FoursquareHandler
   class << self
 
     def save_from_push(params)
-      logger.debug params.to_s
+      Rails.logger.debug params.to_s
       fp = FoursquarePush.new(
         :push_id => params['id'],
         :push_created_at => params['createdAt'],
