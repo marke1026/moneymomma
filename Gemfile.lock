@@ -47,6 +47,8 @@ GEM
     dynamic_form (1.1.4)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    faraday (0.8.1)
+      multipart-post (~> 1.1)
     formtastic (1.2.4)
       actionpack (>= 2.3.7)
       activesupport (>= 2.3.7)
@@ -62,6 +64,7 @@ GEM
     moonshado-sms (1.1.0)
       rest-client (= 1.6.0)
       yajl-ruby (= 0.7.7)
+    multipart-post (1.1.5)
     mysql (2.8.1)
     mysql (2.8.1-x86-mingw32)
     paperclip (2.3.11)
@@ -109,7 +112,7 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.27)
-    yajl-ruby (0.7.7)
+    yajl-ruby (1.1)
 
 PLATFORMS
   ruby
@@ -118,6 +121,7 @@ PLATFORMS
 DEPENDENCIES
   authlogic!
   dynamic_form
+  faraday
   formtastic
   haml
   moonshado-sms
