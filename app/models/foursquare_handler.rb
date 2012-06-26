@@ -21,6 +21,8 @@ class FoursquareHandler
         :relationship => user['relationship']
       )
       venue = params['venue']
+      Rails.logger.error venue.to_s
+      Rails.logger.error venue.class.upcase
       fp.build_foursquare_venue(
         :venue_id => venue['id'],
         :venue_name => venue['name']
