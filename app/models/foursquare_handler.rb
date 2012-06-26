@@ -19,7 +19,6 @@ class FoursquareHandler
         :home_city => user['homeCity'],
         :relationship => user['relationship']
       )
-      venue = params['venue']
       fp.save
     end
 
