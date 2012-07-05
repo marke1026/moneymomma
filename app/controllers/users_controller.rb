@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
-  before_filter :require_user, :only => [:show, :edit, :update, :email_alert]
+  before_filter :require_user, :only => [:show, :edit, :update, :email_alert, :foursquare_callback]
   
   def new
     @user = User.new
@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   
   def show
     @user = @current_user
+    @merchant = initialize_foursquare
   end
 
   def edit
@@ -36,8 +37,24 @@ class UsersController < ApplicationController
     end
   end
   
+  def foursquare_callback
+    merchant = initialize_foursquare
+    access_token = merchant.access_token(params[:code], CALLBACK_URL)
+
+    @user = @current_user
+    if @user.update_attribute('foursquare_token', access_token)
+      flash[:notice] = "Foursquare information saved successfully!"
+      redirect_to user_path(@user)
+    else  
+      render :text => 'failed'
+    end  
+  end  
+
   def email_alert
     @user = @current_user
   end
   
+  def initialize_foursquare
+    Foursquare::Merchant::Consumer.new(CLIENT_ID, CLIENT_SECRET_ID)
+  end  
 end

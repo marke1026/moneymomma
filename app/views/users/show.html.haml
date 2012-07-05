@@ -18,3 +18,5 @@
   =h @user.state
   
 = link_to 'Edit', edit_user_path(@user)
+
+= button_to('Share FourSquare', @merchant.authorize_url('http://localhost:3000/users/foursquare_callback'), :confirm => 'Are you sure?')
