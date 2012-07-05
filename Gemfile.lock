@@ -12,7 +12,7 @@ GIT
   specs:
     prototype_legacy_helper (0.0.0)
 
-uEM
+GEM
   remote: http://rubygems.org/
   specs:
     abstract (1.0.0)
