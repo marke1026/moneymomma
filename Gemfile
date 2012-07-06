@@ -1,8 +1,9 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
-#gem 'ruby-mysql'
-gem 'mysql'
+gem 'ruby-mysql'
+gem 'sqlite3'
+#gem 'mysql'
 gem 'faraday'
 gem 'taps'
 gem 'haml'
