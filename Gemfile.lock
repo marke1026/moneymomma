@@ -120,9 +120,8 @@ GEM
     thor (0.14.6)
     tiny_mce (0.1.4)
     treetop (1.4.9)
-      uolyglot (>= 0.3.1)
+      polyglot (>= 0.3.1)
     tzinfo (0.3.27)
-    yajl-ruby (1.1)
 
 PLATFORMS
   ruby
