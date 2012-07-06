@@ -1,6 +1,13 @@
 source 'http://rubygems.org'
 
-gem 'ruby-debug19' 
+group :development, :test do 
+      if RUBY_VERSION =~ /1.9/ 
+        gem 'ruby-debug19' 
+      else 
+        gem 'ruby-debug' 
+      end 
+  end
+
 gem 'rails', '3.0.3'
 gem 'ruby-mysql'
 gem 'sqlite3'
