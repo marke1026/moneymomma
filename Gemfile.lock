@@ -151,7 +151,7 @@ DEPENDENCIES
   prototype_legacy_helper (= 0.0.0)!
   rails (= 3.0.3)
   rails3-generators
-  ruby-debug19
+  #ruby-debug19
   ruby-mysql
   sqlite3
   taps
