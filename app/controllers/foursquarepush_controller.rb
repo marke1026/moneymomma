@@ -5,13 +5,17 @@ class FoursquarepushController < ApplicationController
   def notify
     
     user = JSON.parse(params['user'])
-    fp =  user['firstName'].to_s
+    fn =  user['firstName'].to_s
+    ln = user['lastName'].to_s
+    venue  = JSON.parse(params['venue'])
+    name = venue['name']
     
-    puts user['firstName'].to_s
+    
+   
 
-    sms = Moonshado::Sms.new("18139577566", "Bam!" + fp.to_s + "  just checkin on Foursquare!")
+    sms = Moonshado::Sms.new("18139577566", "Bam! " + fn.to_s + " " + ln.to_s + "  just checked in at " + name.to_s)
     sms.deliver_sms
-    sms = Moonshado::Sms.new("17278715066", "Bam! "  + fp + "just checkin on Foursquare!")
+    sms = Moonshado::Sms.new("17278715066",  "Bam! " + fn.to_s + " " + ln.to_s + "  just checked in at " + name.to_s)
     sms.deliver_sms
     FoursquareHandler.save_from_push(params)
     render :nothing => true
