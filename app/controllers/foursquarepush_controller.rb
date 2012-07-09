@@ -6,7 +6,7 @@ class FoursquarepushController < ApplicationController
     
    user = JSON.parse(params['user'])
    v = user['venue']
-   puts v['name']
+   puts v['id']
    #puts  v
     #user = params['user']
     #fn =  user['firstName'].to_s
