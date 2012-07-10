@@ -12,8 +12,8 @@ class FoursquarepushController < ApplicationController
      puts venue
    #puts  v
     #user = params['user']
-    #fn =  user['firstName'].to_s
-    #ln = user['lastName'].to_s
+    fn =  user['firstName'].to_s
+    ln = user['lastName'].to_s
 
 
     sms = Moonshado::Sms.new("18139577566", "Bam! " + fn.to_s + " " + ln.to_s + "  just checked in at " + venue.to_s)
