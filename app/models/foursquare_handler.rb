@@ -3,6 +3,8 @@ class FoursquareHandler
   class << self
 
     def save_from_push(params)
+     checkin = JSON.parse(params['checkin'])
+
       fp = FoursquarePush.new(
         :push_id => params['id'],
         :push_created_at => params['createdAt'],
@@ -19,6 +21,15 @@ class FoursquareHandler
         :home_city => user['homeCity'],
         :relationship => user['relationship']
       )
+
+      venue = checkin['venue']
+      puts venue
+      fp.build_foursquare_venue(
+        :venue_id => venue['id'],
+        :venue_name => venue['name'],
+      )
+
+
       fp.save
     end
 

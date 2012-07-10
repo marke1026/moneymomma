@@ -6,11 +6,11 @@ class FoursquarepushController < ApplicationController
     
    user = JSON.parse(params['user'])
 
-   checkin = JSON.parse(params['checkin'])
-   venue = checkin['venue']
-   puts ">>>>>>>Venue<<<<<<<<<<<<"
-   puts venue.inspect
-   puts venue['name']
+   # checkin = JSON.parse(params['checkin'])
+   # venue = checkin['venue']
+   # puts ">>>>>>>Venue<<<<<<<<<<<<"
+   # puts venue.inspect
+   # puts venue['name']
 
    #puts  v
     #user = params['user']
@@ -36,6 +36,7 @@ class FoursquarepushController < ApplicationController
     #sms = Moonshado::Sms.new("17278715066",  "Bam! " + fn.to_s + " " + ln.to_s + "  just checked in at " + name.to_s)
     #sms.deliver_sms
     FoursquareHandler.save_from_push(params)
+    puts FoursquareVenue.last.inspect
     render :nothing => true
   end
 
