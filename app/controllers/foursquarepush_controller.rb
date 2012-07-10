@@ -7,7 +7,7 @@ class FoursquarepushController < ApplicationController
    user = JSON.parse(params['user'])
 
    checkin = JSON.parse(params['checkin'])
-   venue = params['checkin']
+   venue = checkin['venue']
    puts ">>>>>>>Venue<<<<<<<<<<<<"
    puts venue.inspect
    puts venue['name']
