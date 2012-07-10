@@ -5,10 +5,9 @@ class FoursquarepushController < ApplicationController
   def notify
     
    user = JSON.parse(params['user'])
-   params = JSON.parse(params)
-   venue = params['venue']
-   puts ">>>>>>>Venue<<<<<<<<<<<<"
    puts params.inspect
+   venue = JSON.parse(params['venue'])
+   puts ">>>>>>>Venue<<<<<<<<<<<<"
    puts venue.inspect
    puts venue['name']
 
