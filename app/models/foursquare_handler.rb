@@ -29,7 +29,6 @@ class FoursquareHandler
         :venue_name => venue['name'],
       )
 
-
       fp.save
     end
 
