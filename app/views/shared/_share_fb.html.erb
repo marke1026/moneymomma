@@ -1,0 +1,30 @@
+<div id='fb-root'></div>
+<%= hidden_field_tag 'user_id', current_user.id %>
+<%= hidden_field_tag 'user_facebook_id' %>
+<script src='http://connect.facebook.net/en_US/all.js'></script>
+<p><a onclick='postToFeed(); return false;'><img src="../images/share_fb.png" /></a></p>
+<p id='msg'></p>
+
+<script> 
+  FB.init({appId: "433185453412584", status: true, cookie: true});
+
+  function postToFeed() {
+
+    // calling the API ...
+    var obj = {
+      method: 'feed',
+      link: 'www.moneymomma.com/'+ $('#user_id').val()+'/utm_source=fbshare',
+      picture: 'http://mymoneymomma.heroku.com/images/imagehome/logo_.png',
+      name: 'Moneymomma share',
+      caption: 'Reference Documentation',
+      description: 'Using Dialogs to interact with users.'
+    };
+
+    function callback(response) {
+      //document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
+      $('#user_facebook_id').attr('value', response['post_id']);
+    }
+
+    FB.ui(obj, callback);
+  }
+</script>
