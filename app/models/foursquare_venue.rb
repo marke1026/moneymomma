@@ -1,6 +1,6 @@
-class FoursquareVenue < ActiveRecord::Base
+#class FoursquareVenue < ActiveRecord::Base
 
-  belongs_to :foursquare_push
+#  belongs_to :foursquare_push
 
-end
+#end
 

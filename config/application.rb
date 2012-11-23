@@ -41,11 +41,13 @@ module Money
   end
 end
 # Gmail settings. Comment the following settings to make the normal email delivery software work on server.
+
 ActionMailer::Base.smtp_settings = {
-  :address => "smtp.gmail.com",
-  :port => "587",
-  :domain=>"www.gmail.com",
+  :user_name => "app9338299@heroku.com",
+  :password => "0zwbfrou",
+  :domain => "heroku.com",
+  :address => "smtp.sendgrid.net",
+  :port => 587,
   :authentication => :plain,
-  :user_name => "mlopez@mymoneymomma.com",
-  :password => "1treyella"
+  :enable_starttls_auto => true
 }
